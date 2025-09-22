@@ -1,65 +1,102 @@
-from transformers import pipeline
 from datetime import datetime
+from langchain.prompts import PromptTemplate
+from langchain.chains import LLMChain
+from langchain_community.llms import HuggingFacePipeline
+from transformers import pipeline
+import os
+from dotenv import load_dotenv
 
-summarizer_pipeline = pipeline(
-    "summarization",
-    model="sshleifer/distilbart-cnn-12-6",
-    use_auth_token="---"  # public alternative to facebook/bart-large-cnn
+load_dotenv()
+hf_token = os.getenv("HUGGINGFACEHUB_API_TOKEN")
+
+# ==============================================================================
+
+print("Initializing HuggingFace pipelines...")
+
+try:
+    summarizer_pipeline = pipeline(
+        "summarization",
+        model="philschmid/bart-large-cnn-samsum"
+    )
+    print("Summarizer pipeline loaded successfully")
+except Exception as e:
+    print("Error loading summarizer pipeline:", e)
+    raise
+
+try:
+    action_pipeline = pipeline(
+        "text2text-generation",
+        model="google/flan-t5-base"
+    )
+    print("Action pipeline loaded successfully")
+except Exception as e:
+    print("Error loading action pipeline:", e)
+    raise
+
+print("Wrapping pipelines with LangChain...")
+summarizer_llm = HuggingFacePipeline(pipeline=summarizer_pipeline)
+action_llm = HuggingFacePipeline(pipeline=action_pipeline)
+
+# ========================================================================================
+
+summary_template = PromptTemplate(
+    input_variables=["conversation"],
+    template="Summarize the following team conversation:\n\n{conversation}\n\nSummary:"
 )
 
-action_pipeline = pipeline(
-    "text2text-generation",
-    model="google/flan-t5-small",
-    use_auth_token="---"  # already public
+action_template = PromptTemplate(
+    input_variables=["conversation"],
+    template="Extract all action items with deadlines and owners from this conversation:\n\n{conversation}\n\nAction Items:"
 )
+
+summary_chain = LLMChain(llm=summarizer_llm, prompt=summary_template)
+action_chain = LLMChain(llm=action_llm, prompt=action_template)
+
+# =========================================================================================
 
 def preprocess_chats(chats):
-    """Clean messages and normalize timestamps"""
+    print(" Preprocessing chats...")
     cleaned = []
     for c in chats:
         if c.get("message") and c['message'].strip():
             try:
                 ts = datetime.fromisoformat(c['timestamp'])
-            except:
+            except Exception as e:
+                print(f"Invalid timestamp {c['timestamp']}, using now() instead")
                 ts = datetime.now()
             cleaned.append({
                 "timestamp": ts,
                 "user": c.get("user", "Unknown"),
                 "message": c['message'].strip()
             })
+    print(f"Preprocessed {len(cleaned)} messages")
     return cleaned
 
-def generate_summary(chats):
-    all_messages = " ".join([c['message'] for c in chats])
-    summary = summarizer_pipeline(all_messages, max_length=150, min_length=50, do_sample=False)[0]['summary_text']
-    return summary
+def run_pipeline(chats):
+    print("Building conversation text...")
+    conversation_text = "\n".join([f"{c['user']}: {c['message']}" for c in chats])
+    print("Conversation:\n", conversation_text)
 
-def extract_action_items(chats):
-    all_messages = " ".join([c['message'] for c in chats])
-    prompt = "Extract action items from the following conversation:\n\n" + all_messages
-    actions = action_pipeline(prompt, max_length=100)[0]['generated_text']
-    return actions
+    print("\n🚀 Running summarization...")
+    summary = summary_chain.run(conversation=conversation_text)
+    print("Summary generated")
 
-if __name__ == "__main__":
-    # Sample chat data
-    sample_chats = [
-        {"timestamp": "2025-09-22T09:00:00", "user": "Alice", "message": "We need to finalize the budget report by Friday."},
-        {"timestamp": "2025-09-22T09:10:00", "user": "Bob", "message": "I'll collect the sales data by Thursday."},
-        {"timestamp": "2025-09-22T09:15:00", "user": "Alice", "message": "Also, schedule the team meeting for next week."}
-    ]
+    print("\n🚀 Extracting action items...")
+    actions = action_chain.run(conversation=conversation_text)
+    print("Actions extracted")
 
-    # Preprocess
-    cleaned_chats = preprocess_chats(sample_chats)
-    print("✅ Preprocessed Chats:")
-    for c in cleaned_chats:
-        print(f"{c['timestamp']} - {c['user']}: {c['message']}")
+    return summary, actions
 
-    # Generate summary
-    summary = generate_summary(cleaned_chats)
-    print("\n📝 Summary:")
-    print(summary)
+# =============================================================================================
 
-    # Extract action items
-    actions = extract_action_items(cleaned_chats)
-    print("\n✅ Action Items:")
-    print(actions)
+sample_chats = [
+    {"timestamp": "2025-09-22T09:00:00", "user": "Alice", "message": "We need to finalize the budget report by Friday."},
+    {"timestamp": "2025-09-22T09:10:00", "user": "Bob", "message": "I'll collect the sales data by Thursday."},
+    {"timestamp": "2025-09-22T09:15:00", "user": "Alice", "message": "Also, schedule the team meeting for next week."}
+]
+
+cleaned = preprocess_chats(sample_chats)
+summary, actions = run_pipeline(cleaned)
+
+print("\nFinal Summary:\n", summary)
+print("\nFinal Action Items:\n", actions)
