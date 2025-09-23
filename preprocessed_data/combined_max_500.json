@@ -1,0 +1,2810 @@
+[
+  {
+    "timestamp": "2017-07-21T15:32:57.901156",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "Is <https://github.com/stuartsierra/component> “state of the art” to structure a system in Clojure? Or does anyone have better advice?"
+  },
+  {
+    "timestamp": "2017-07-21T15:34:10.934255",
+    "conversation_id": 382,
+    "user": "Darci",
+    "message": "I prefer <https://github.com/tolitius/mount> by far. Simpler, less opinionated, less viral."
+  },
+  {
+    "timestamp": "2017-07-21T15:34:54.953818",
+    "conversation_id": 382,
+    "user": "Rebeca",
+    "message": "mount is just terrible though"
+  },
+  {
+    "timestamp": "2017-07-21T15:35:10.961437",
+    "conversation_id": 382,
+    "user": "Darci",
+    "message": "could be. I rather don't like component."
+  },
+  {
+    "timestamp": "2017-07-21T15:35:51.979592",
+    "conversation_id": 382,
+    "user": "Malka",
+    "message": "<@Lucio> check out integrant: <https://github.com/weavejester/integrant>"
+  },
+  {
+    "timestamp": "2017-07-21T15:35:52.980272",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": ":smile: well, let me turn my question around then: what would be your preferred way to structure a system to as to make dependency injection / mocking easy?"
+  },
+  {
+    "timestamp": "2017-07-21T15:36:03.984925",
+    "conversation_id": 382,
+    "user": "Rebeca",
+    "message": "component"
+  },
+  {
+    "timestamp": "2017-07-21T15:36:07.986589",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "I am new to clojure and about to build my first app"
+  },
+  {
+    "timestamp": "2017-07-21T15:36:07.986877",
+    "conversation_id": 382,
+    "user": "Darci",
+    "message": "mount :slightly_smiling_face:"
+  },
+  {
+    "timestamp": "2017-07-21T15:36:20.992505",
+    "conversation_id": 382,
+    "user": "Darci",
+    "message": "lol"
+  },
+  {
+    "timestamp": "2017-07-21T15:36:24.994302",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "Integrant :wink:"
+  },
+  {
+    "timestamp": "2017-07-21T15:36:24.994398",
+    "conversation_id": 382,
+    "user": "Rebeca",
+    "message": "mount is a formalized system of global state, component gets rid of global state"
+  },
+  {
+    "timestamp": "2017-07-21T15:36:29.996640",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "I guess I’ll try all three then"
+  },
+  {
+    "timestamp": "2017-07-21T15:36:30.997225",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "But I might be a touch biased"
+  },
+  {
+    "timestamp": "2017-07-21T15:36:30.997320",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": ":smile:"
+  },
+  {
+    "timestamp": "2017-07-21T15:36:45.004108",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "oh, integrant is your project <@Ramonita>"
+  },
+  {
+    "timestamp": "2017-07-21T15:36:48.005168",
+    "conversation_id": 382,
+    "user": "Merrie",
+    "message": "<@Rebeca> why is mount terrible?"
+  },
+  {
+    "timestamp": "2017-07-21T15:36:54.008253",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "Component is the most used. Integrant is a little new, but YMMV."
+  },
+  {
+    "timestamp": "2017-07-21T15:36:57.009353",
+    "conversation_id": 382,
+    "user": "Darci",
+    "message": "yeah, I guess that's the best thing to do: try all :slightly_smiling_face:"
+  },
+  {
+    "timestamp": "2017-07-21T15:37:01.011407",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "<@Ramonita> what does integrant do better than mount and component?"
+  },
+  {
+    "timestamp": "2017-07-21T15:37:09.015174",
+    "conversation_id": 382,
+    "user": "Rebeca",
+    "message": "mount is based on global state in global atoms"
+  },
+  {
+    "timestamp": "2017-07-21T15:37:16.018113",
+    "conversation_id": 382,
+    "user": "Rebeca",
+    "message": "I've done that, it sucked"
+  },
+  {
+    "timestamp": "2017-07-21T15:37:55.036380",
+    "conversation_id": 382,
+    "user": "Rebeca",
+    "message": "component turns your system in to another first class value you can pass around, have multiple copies of, etc"
+  },
+  {
+    "timestamp": "2017-07-21T15:37:56.036963",
+    "conversation_id": 382,
+    "user": "Darci",
+    "message": "<@Rebeca> we've all done all kinds of stuff, I never liked component. No need to argue with : I like it - I don't."
+  },
+  {
+    "timestamp": "2017-07-21T15:38:02.039557",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "I fear I’ve asked a more contentious question than “should I use VIM or Emacs?”"
+  },
+  {
+    "timestamp": "2017-07-21T15:38:03.040107",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "<@Lucio> Compared to Mount, Integrant doesn’t have global state. Compared to Component, Integrant can have dependencies between things that aren’t maps/records."
+  },
+  {
+    "timestamp": "2017-07-21T15:38:45.059088",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "I feel like Vim and Emacs users can be collectively smug toward users of lesser editors :wink:"
+  },
+  {
+    "timestamp": "2017-07-21T15:38:48.060663",
+    "conversation_id": 382,
+    "user": "Darci",
+    "message": "we know <@Rebeca> doesn't like mount : <https://gist.github.com/pandeiro/9a1c8fd431e1b4c78c99>"
+  },
+  {
+    "timestamp": "2017-07-21T15:39:24.076731",
+    "conversation_id": 382,
+    "user": "Darci",
+    "message": "That discussion actually drew my attention to mount, and I like it since. Thanks to <@Rebeca> :slightly_smiling_face:"
+  },
+  {
+    "timestamp": "2017-07-21T15:39:50.088257",
+    "conversation_id": 382,
+    "user": "Rebeca",
+    "message": "huh, I didn't know there was acopy of that floating around"
+  },
+  {
+    "timestamp": "2017-07-21T15:39:54.089867",
+    "conversation_id": 382,
+    "user": "Merrie",
+    "message": "``` seems bad, like sticking (def state (atom {})) in every namespace would be ``` isn't this the way I am supposed to do things? :kappa:"
+  },
+  {
+    "timestamp": "2017-07-21T15:40:04.094487",
+    "conversation_id": 382,
+    "user": "Rebeca",
+    "message": "god no"
+  },
+  {
+    "timestamp": "2017-07-21T15:40:36.109266",
+    "conversation_id": 382,
+    "user": "Rebeca",
+    "message": "singleton global state is bad and sprinkling clojure on it doesn't make it good"
+  },
+  {
+    "timestamp": "2017-07-21T15:40:57.118594",
+    "conversation_id": 382,
+    "user": "Darci",
+    "message": "still, thanks for pointing me to mount :wink:"
+  },
+  {
+    "timestamp": "2017-07-21T15:41:06.122720",
+    "conversation_id": 382,
+    "user": "Merrie",
+    "message": "actually, I'd love to see good example of not doing global atoms, asking for a friend™"
+  },
+  {
+    "timestamp": "2017-07-21T15:42:11.152133",
+    "conversation_id": 382,
+    "user": "Merrie",
+    "message": "I guess good component example would suffice as well"
+  },
+  {
+    "timestamp": "2017-07-21T15:43:11.179905",
+    "conversation_id": 382,
+    "user": "Rebeca",
+    "message": "all the main component projects I have worked on have been closed source apps"
+  },
+  {
+    "timestamp": "2017-07-21T15:43:26.186683",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "Oh, I didn’t realise you’re the maintainer of Ring and Compojure!"
+  },
+  {
+    "timestamp": "2017-07-21T15:43:33.190088",
+    "conversation_id": 382,
+    "user": "Martina",
+    "message": "Here is the problem with global state: you don’t know beforehand how you will want to use your code later. So, inevitably the system grows to the point where your previous “application” is subsumed in some larger structure, and you have to refactor all the global state out of it. Which is a much bigger pain later."
+  },
+  {
+    "timestamp": "2017-07-21T15:43:59.201700",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "Indeed. Feel free to hit me up with any questions when/if you happen to have any."
+  },
+  {
+    "timestamp": "2017-07-21T15:44:05.204502",
+    "conversation_id": 382,
+    "user": "Darci",
+    "message": "Read the discussion... it's enlightening"
+  },
+  {
+    "timestamp": "2017-07-21T15:44:09.206082",
+    "conversation_id": 382,
+    "user": "Rebeca",
+    "message": "<https://github.com/hiredman/songs-of-future-past/blob/master/src/com/manigfeald/sofp.clj> is an example of something using component, I don't know that it is good"
+  },
+  {
+    "timestamp": "2017-07-21T15:44:35.218102",
+    "conversation_id": 382,
+    "user": "Merrie",
+    "message": "thank you"
+  },
+  {
+    "timestamp": "2017-07-21T15:44:36.218382",
+    "conversation_id": 382,
+    "user": "Rebeca",
+    "message": "it doesn't have any tests, which is where the lack of global state would really shine"
+  },
+  {
+    "timestamp": "2017-07-21T15:45:53.253674",
+    "conversation_id": 382,
+    "user": "Martina",
+    "message": "I only say this because I went through this before. Component solves a problem I was having, and has been great ever since."
+  },
+  {
+    "timestamp": "2017-07-21T15:46:21.266591",
+    "conversation_id": 382,
+    "user": "Martina",
+    "message": "I feel like you can go through this yourself, maybe that is the only way to see it"
+  },
+  {
+    "timestamp": "2017-07-21T15:47:37.301110",
+    "conversation_id": 382,
+    "user": "Lucia",
+    "message": "hmaurer: in that case, build it yourself. once you've got that experience under your belt you'll be able to evaluate mount, component, etc. walk before you run."
+  },
+  {
+    "timestamp": "2017-07-21T15:48:01.312707",
+    "conversation_id": 382,
+    "user": "Rebeca",
+    "message": "I would say it is a classic easy/simple split, component is way simpler (<https://gist.github.com/hiredman/075b45eaeb01e4b526ce6f8854685487> implements all the functionality of component in 30 lines, but lacks refinement), but mount is going to be easier because using globals is always easier for a few months"
+  },
+  {
+    "timestamp": "2017-07-21T15:48:23.322687",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "<@Lucia> good point. that has been my general philosophy so far"
+  },
+  {
+    "timestamp": "2017-07-21T15:48:53.336730",
+    "conversation_id": 382,
+    "user": "Martina",
+    "message": "I think of it as an “easier now”/“easier later” divide"
+  },
+  {
+    "timestamp": "2017-07-21T15:49:33.355447",
+    "conversation_id": 382,
+    "user": "Martina",
+    "message": "Global state is easy now. You don’t have to learn anything and it doesn’t take work to set up"
+  },
+  {
+    "timestamp": "2017-07-21T15:49:43.360155",
+    "conversation_id": 382,
+    "user": "Darci",
+    "message": "Going the 'simpler' and 'easier' way, are we?"
+  },
+  {
+    "timestamp": "2017-07-21T15:50:33.383683",
+    "conversation_id": 382,
+    "user": "Lucia",
+    "message": "hmaurer: fwiw all that stuff is interesting and useful, i suppose, but i've not needed to use any of them. mastering clojure is already a tall order, those things are for ninjas (imho). good luck!"
+  },
+  {
+    "timestamp": "2017-07-21T15:50:43.388281",
+    "conversation_id": 382,
+    "user": "Darci",
+    "message": "Right, it may be easier, and if it solves the problem, why make it more difficult? - What is the problem you want to solve? This may be the first question to <@Lucio>"
+  },
+  {
+    "timestamp": "2017-07-21T15:51:12.400982",
+    "conversation_id": 382,
+    "user": "Darci",
+    "message": "Having a viral framework, I never liked that. Component is more a framework - I will be screwed as well"
+  },
+  {
+    "timestamp": "2017-07-21T15:51:16.403058",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "<@Lucia> thanks! any tip on mastering clojure itself?"
+  },
+  {
+    "timestamp": "2017-07-21T15:51:25.407131",
+    "conversation_id": 382,
+    "user": "Martina",
+    "message": "<@Darci> Agreed. <@Lucio> If you are trying to learn Clojure, just use a global atom"
+  },
+  {
+    "timestamp": "2017-07-21T15:51:30.409553",
+    "conversation_id": 382,
+    "user": "Darci",
+    "message": "Have used enough frameworks, they always hit you in the face as well... and hard :slightly_smiling_face:"
+  },
+  {
+    "timestamp": "2017-07-21T15:52:10.427295",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "I don’t really want to use a global state atom. While I am new to clojure I’ve been interested in functional programming for quite a while; if there are ways to avoid global state I rather do so"
+  },
+  {
+    "timestamp": "2017-07-21T15:52:15.429732",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "But I’ll try out mount either way"
+  },
+  {
+    "timestamp": "2017-07-21T15:52:18.430986",
+    "conversation_id": 382,
+    "user": "Martina",
+    "message": "<@Darci> We disagree in general, it is okay"
+  },
+  {
+    "timestamp": "2017-07-21T15:52:20.431925",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "I might learn some valuable lessons"
+  },
+  {
+    "timestamp": "2017-07-21T15:52:32.437632",
+    "conversation_id": 382,
+    "user": "Martina",
+    "message": "<@Lucio> That is good context. In that case I think you will appreciate component"
+  },
+  {
+    "timestamp": "2017-07-21T15:52:36.439414",
+    "conversation_id": 382,
+    "user": "Merrie",
+    "message": "fwiw, there is a yurt for mount <https://github.com/tolitius/yurt> ```Multiple brand new local Yurts with components can be created and passed down to the application / REPL to be used simultaneously in the same Clojure runtime for fun and profit.```"
+  },
+  {
+    "timestamp": "2017-07-21T15:52:37.439792",
+    "conversation_id": 382,
+    "user": "Darci",
+    "message": "Exactly - check what works out for you."
+  },
+  {
+    "timestamp": "2017-07-21T15:52:40.441415",
+    "conversation_id": 382,
+    "user": "Rebeca",
+    "message": "integrant seems ok, I haven't looked at in depth, but it looks like it uses multimethods for dispatch, which I've done with component before, but is annoying if you want to create an anonymous sort of mock of something in a test"
+  },
+  {
+    "timestamp": "2017-07-21T15:53:17.457481",
+    "conversation_id": 382,
+    "user": "Martina",
+    "message": "<@Lucio> Once you understand it, it is not as bad as people make it out to be"
+  },
+  {
+    "timestamp": "2017-07-21T15:53:18.457984",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "A global state atom also sounds a bit messy for mocking"
+  },
+  {
+    "timestamp": "2017-07-21T15:53:21.459706",
+    "conversation_id": 382,
+    "user": "Martina",
+    "message": "It is a conceptual hurdle"
+  },
+  {
+    "timestamp": "2017-07-21T15:53:25.461657",
+    "conversation_id": 382,
+    "user": "Martina",
+    "message": "not a technical one"
+  },
+  {
+    "timestamp": "2017-07-21T15:53:31.464216",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "I mean, you could set the global state atom before runing your tests with the mock dependency"
+  },
+  {
+    "timestamp": "2017-07-21T15:53:33.465178",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "but it sounds a bit dirty"
+  },
+  {
+    "timestamp": "2017-07-21T15:53:38.467292",
+    "conversation_id": 382,
+    "user": "Rebeca",
+    "message": "<@Lucio> the beating heart of mount <https://github.com/tolitius/mount/blob/master/src/mount/core.cljc#L12-L16>"
+  },
+  {
+    "timestamp": "2017-07-21T15:54:04.479333",
+    "conversation_id": 382,
+    "user": "Darci",
+    "message": "<@Martina> right... one prefers frameworks, the other doesn't. Fine with me :slightly_smiling_face:."
+  },
+  {
+    "timestamp": "2017-07-21T15:54:37.494182",
+    "conversation_id": 382,
+    "user": "Darci",
+    "message": "Global state atom can be bad, of course. That's why mount manages it, so you don't have to."
+  },
+  {
+    "timestamp": "2017-07-21T15:54:55.502020",
+    "conversation_id": 382,
+    "user": "Merrie",
+    "message": ":opieop:"
+  },
+  {
+    "timestamp": "2017-07-21T15:54:59.503875",
+    "conversation_id": 382,
+    "user": "Martina",
+    "message": "I would call component more of a pattern. It is not doing much for you, most of it is explicit"
+  },
+  {
+    "timestamp": "2017-07-21T15:55:24.515444",
+    "conversation_id": 382,
+    "user": "Darci",
+    "message": "Anyway, we'll never agree on that part - that discussion was pretty clear about how it's not that different from component (passing in state everywhere)"
+  },
+  {
+    "timestamp": "2017-07-21T15:55:34.519659",
+    "conversation_id": 382,
+    "user": "Martina",
+    "message": "It is a pattern of state access, treating state as a value"
+  },
+  {
+    "timestamp": "2017-07-21T15:55:56.529803",
+    "conversation_id": 382,
+    "user": "Darci",
+    "message": "<@Martina> right... it does not do much... I like that :slightly_smiling_face:"
+  },
+  {
+    "timestamp": "2017-07-21T15:56:16.539240",
+    "conversation_id": 382,
+    "user": "Martina",
+    "message": "Basically, it is the functional way to do things: you have to pass everything in"
+  },
+  {
+    "timestamp": "2017-07-21T15:56:48.554518",
+    "conversation_id": 382,
+    "user": "Darci",
+    "message": "yes, that's a dogmatic reason. I prefer pragmatism in many cases."
+  },
+  {
+    "timestamp": "2017-07-21T15:57:10.564570",
+    "conversation_id": 382,
+    "user": "Lucia",
+    "message": "write code, heh. to me the key is compositionality. it was not obvious to me just what that means when i was starting. i guess i would recommend focussing on the small stuff first - sequuences, laziness, core.async, etc. explore the api - what does juxt do? how to use protocols? etc."
+  },
+  {
+    "timestamp": "2017-07-21T15:57:26.572247",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "Is there a good blog/book/resource somewhere on clojure ways of doing things? (i am already familiar with “programming clojure” and “the joy of clojure”)"
+  },
+  {
+    "timestamp": "2017-07-21T15:58:04.590513",
+    "conversation_id": 382,
+    "user": "Wilhemina",
+    "message": "I've heard good things of <http://www.braveclojure.com/>"
+  },
+  {
+    "timestamp": "2017-07-21T15:58:14.595166",
+    "conversation_id": 382,
+    "user": "Lucia",
+    "message": "better: forget the app for now, just spend a lot of time in the repl experimenting."
+  },
+  {
+    "timestamp": "2017-07-21T15:58:22.598781",
+    "conversation_id": 382,
+    "user": "Vannessa",
+    "message": "heh, I went to Mount after a couple years of Component straitjacket. In a bigger team I’d use Component though :slightly_smiling_face:"
+  },
+  {
+    "timestamp": "2017-07-21T15:58:25.600214",
+    "conversation_id": 382,
+    "user": "Darci",
+    "message": "clojure does have state management constructs because you don't pass everything in. There's a reason why clojure isn't dogmatic on FP."
+  },
+  {
+    "timestamp": "2017-07-21T15:59:08.620036",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "<https://leanpub.com/elementsofclojure> isn’t finished but has some interesting ideas. It’s not a general purpose programming book, though. I think the first chapter on naming is free."
+  },
+  {
+    "timestamp": "2017-07-21T15:59:12.622265",
+    "conversation_id": 382,
+    "user": "Daniell",
+    "message": "As someone who initially went down a Mount-like path when building a system and has since switched to Component, I'll \"vote\" for <@Rebeca>'s position here that global state is a *terrible* idea."
+  },
+  {
+    "timestamp": "2017-07-21T15:59:37.633613",
+    "conversation_id": 382,
+    "user": "Darci",
+    "message": "It is a terrible idea in general, right. The dogmatic reason. I can understand it."
+  },
+  {
+    "timestamp": "2017-07-21T15:59:55.642062",
+    "conversation_id": 382,
+    "user": "Darci",
+    "message": "But having a viral framework has hit me many times, including component."
+  },
+  {
+    "timestamp": "2017-07-21T16:00:20.654987",
+    "conversation_id": 382,
+    "user": "Daniell",
+    "message": "We're still feeling the pain of the global state approach as we piecemeal migrate away from it (by using Component instead but having its `start`/`stop` functions keep the legacy global state in sync until we can replace it)."
+  },
+  {
+    "timestamp": "2017-07-21T16:00:42.665944",
+    "conversation_id": 382,
+    "user": "Darci",
+    "message": "That's why I prefer mount - pragmatism, and as long as you manage state, it's ok."
+  },
+  {
+    "timestamp": "2017-07-21T16:00:52.670479",
+    "conversation_id": 382,
+    "user": "Wilhemina",
+    "message": "single global atom is the rallying cry for frontend projects lately"
+  },
+  {
+    "timestamp": "2017-07-21T16:01:03.675602",
+    "conversation_id": 382,
+    "user": "Darci",
+    "message": ":slightly_smiling_face:"
+  },
+  {
+    "timestamp": "2017-07-21T16:01:15.681365",
+    "conversation_id": 382,
+    "user": "Lucia",
+    "message": "<@Lucio> as you can tell from this thread, there is always More Than One Way to Do It. Master the basics first, then you'll see just how true that is!"
+  },
+  {
+    "timestamp": "2017-07-21T16:01:28.687900",
+    "conversation_id": 382,
+    "user": "Darci",
+    "message": "lol true!"
+  },
+  {
+    "timestamp": "2017-07-21T16:01:33.690324",
+    "conversation_id": 382,
+    "user": "Daniell",
+    "message": "Component is not a \"viral framework\". Functions need to be based stuff as arguments, not reach out to global state for it."
+  },
+  {
+    "timestamp": "2017-07-21T16:01:48.697466",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "Haha, I am glad it sparked a discussion though. It would have been quite boring if someone linked me a lib and 5 people thumbed up"
+  },
+  {
+    "timestamp": "2017-07-21T16:01:51.699039",
+    "conversation_id": 382,
+    "user": "Darci",
+    "message": "Once you start using component, it's hard not to use it everywhere in your code base."
+  },
+  {
+    "timestamp": "2017-07-21T16:01:57.701448",
+    "conversation_id": 382,
+    "user": "Rebeca",
+    "message": "<@Wilhemina>"
+  },
+  {
+    "timestamp": "2017-07-21T16:02:13.709287",
+    "conversation_id": 382,
+    "user": "Darci",
+    "message": "So well, I call that viral (inside the code base)."
+  },
+  {
+    "timestamp": "2017-07-21T16:02:19.711824",
+    "conversation_id": 382,
+    "user": "Rebeca",
+    "message": "<@Wilhemina> I wouldn't be surprised if that is the primary split front end / back end on mount / component"
+  },
+  {
+    "timestamp": "2017-07-21T16:02:39.721134",
+    "conversation_id": 382,
+    "user": "Darci",
+    "message": "You do it 'the component way' or not. There's nothing in between... using component."
+  },
+  {
+    "timestamp": "2017-07-21T16:02:39.721252",
+    "conversation_id": 382,
+    "user": "Martina",
+    "message": "I think it is more about providing each part of your system the minimal amount of information it needs to do its job. That way you can decompose and rearrange it later. Which at some point will become very important."
+  },
+  {
+    "timestamp": "2017-07-21T16:02:59.730234",
+    "conversation_id": 382,
+    "user": "Martina",
+    "message": "global state creates interdependence, which is weakness"
+  },
+  {
+    "timestamp": "2017-07-21T16:03:05.733061",
+    "conversation_id": 382,
+    "user": "Guillermo",
+    "message": "Hate to make an argument by authority, but it's really not insignificant that some of the most veteran clojure developers (<@Rebeca> / <@Daniell> ) favor component. Personally I think mount teaches new clojure users bad habits."
+  },
+  {
+    "timestamp": "2017-07-21T16:03:13.736577",
+    "conversation_id": 382,
+    "user": "Darci",
+    "message": "Same with mount, honestly. Check that discussion I posted above, it's really all not that different."
+  },
+  {
+    "timestamp": "2017-07-21T16:03:19.739613",
+    "conversation_id": 382,
+    "user": "Guillermo",
+    "message": "s/mount/global state patterns/"
+  },
+  {
+    "timestamp": "2017-07-21T16:03:29.744017",
+    "conversation_id": 382,
+    "user": "Daniell",
+    "message": "<@Darci> any given function just needs to be passed what it _needs_ -- not the whole system -- and that's just functional cleanliness. You initialize all your resources at application startup, put them in a map, pass the relevant bits down the call chain. Component just formalizes that and manages dependencies for you."
+  },
+  {
+    "timestamp": "2017-07-21T16:03:39.748565",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "can you do that with component? don’t you pass the whole context around usually? or do you intentionally strip some keys from the context?"
+  },
+  {
+    "timestamp": "2017-07-21T16:03:57.756975",
+    "conversation_id": 382,
+    "user": "Darci",
+    "message": "Same with mount, really, if you like so."
+  },
+  {
+    "timestamp": "2017-07-21T16:04:12.763281",
+    "conversation_id": 382,
+    "user": "Vannessa",
+    "message": "<@Guillermo> - even though I prefer Mount - I agree :slightly_smiling_face: Mount should only be allowed once you spent a year with Component"
+  },
+  {
+    "timestamp": "2017-07-21T16:04:28.770521",
+    "conversation_id": 382,
+    "user": "Darci",
+    "message": "<@Vannessa> :slightly_smiling_face:"
+  },
+  {
+    "timestamp": "2017-07-21T16:04:51.780673",
+    "conversation_id": 382,
+    "user": "Martina",
+    "message": "You only give each component access to the components it asks for (basically you declare a dependency). Your component only ever sees the state that it asks for"
+  },
+  {
+    "timestamp": "2017-07-21T16:05:30.797931",
+    "conversation_id": 382,
+    "user": "Daniell",
+    "message": "Perhaps the pain level with Mount doesn't show up until you have a large enough system? Just like global state only causes you pain after a certain point?"
+  },
+  {
+    "timestamp": "2017-07-21T16:05:41.802794",
+    "conversation_id": 382,
+    "user": "Guillermo",
+    "message": "The `mount` readme describing `component` is disingenuous <https://github.com/tolitius/mount/blob/master/doc/differences-from-component.md#differences-from-component>"
+  },
+  {
+    "timestamp": "2017-07-21T16:05:54.808805",
+    "conversation_id": 382,
+    "user": "Martina",
+    "message": "which makes it really nice, because your systems are modular by default"
+  },
+  {
+    "timestamp": "2017-07-21T16:06:33.825440",
+    "conversation_id": 382,
+    "user": "Vannessa",
+    "message": "<@Daniell> it’s probably true. In my case I’ve avoided building large applications (modules). I just have many of them."
+  },
+  {
+    "timestamp": "2017-07-21T16:06:57.836505",
+    "conversation_id": 382,
+    "user": "Daniell",
+    "message": "We have about 60,000 lines of Clojure right now..."
+  },
+  {
+    "timestamp": "2017-07-21T16:07:11.842516",
+    "conversation_id": 382,
+    "user": "Vannessa",
+    "message": "I have half that, but I’m the only dev"
+  },
+  {
+    "timestamp": "2017-07-21T16:07:29.850671",
+    "conversation_id": 382,
+    "user": "Darci",
+    "message": "LOC - so?"
+  },
+  {
+    "timestamp": "2017-07-21T16:07:38.854526",
+    "conversation_id": 382,
+    "user": "Martina",
+    "message": "<@Vannessa> I kind of fear your codebase ; )"
+  },
+  {
+    "timestamp": "2017-07-21T16:07:59.863672",
+    "conversation_id": 382,
+    "user": "Vannessa",
+    "message": "you should :slightly_smiling_face:"
+  },
+  {
+    "timestamp": "2017-07-21T16:08:13.869663",
+    "conversation_id": 382,
+    "user": "Martina",
+    "message": "Sweet, your glyphs and wards are working"
+  },
+  {
+    "timestamp": "2017-07-21T16:08:16.871299",
+    "conversation_id": 382,
+    "user": "Darci",
+    "message": "anyway, as said before, one prefers dogmatic, other prefer pragmatism. One prefers frameworks, other prefer libs/patterns. One likes pink, the other blue. Whatever :slightly_smiling_face:"
+  },
+  {
+    "timestamp": "2017-07-21T16:08:57.888776",
+    "conversation_id": 382,
+    "user": "Martina",
+    "message": "If you want to do things functionally, component is what you want"
+  },
+  {
+    "timestamp": "2017-07-21T16:09:41.908280",
+    "conversation_id": 382,
+    "user": "Darci",
+    "message": "(some ran away from component, others ran away from mount, so maybe we all should try integrant and decide it's not a silver bullet either :slightly_smiling_face: )"
+  },
+  {
+    "timestamp": "2017-07-21T16:10:01.917010",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "can you elaborate on the potential issues with multimethods please?"
+  },
+  {
+    "timestamp": "2017-07-21T16:10:12.922242",
+    "conversation_id": 382,
+    "user": "Darci",
+    "message": "lol - because someone has an opinion? Nice."
+  },
+  {
+    "timestamp": "2017-07-21T16:13:26.008145",
+    "conversation_id": 382,
+    "user": "Daniell",
+    "message": "Like I say, hard lessons learned building a system the \"easy\" way with Mount-like managed state, instead of the \"simple\" way with Component-like managed dependencies."
+  },
+  {
+    "timestamp": "2017-07-21T16:14:19.030909",
+    "conversation_id": 382,
+    "user": "Lucia",
+    "message": "zzzzz. clojurians having another vigorous debate/ disagreement _without calling each other names_. wtf is wrong with you people?! :wink:"
+  },
+  {
+    "timestamp": "2017-07-21T16:16:41.091578",
+    "conversation_id": 382,
+    "user": "Rebeca",
+    "message": "<@Lucia> I dunno, can't we just hate each other's software without hating each other?"
+  },
+  {
+    "timestamp": "2017-07-21T16:17:24.109703",
+    "conversation_id": 382,
+    "user": "Rebeca",
+    "message": "(hating your own software is of course also acceptable)"
+  },
+  {
+    "timestamp": "2017-07-21T16:17:26.110556",
+    "conversation_id": 382,
+    "user": "Lucia",
+    "message": "hate the code, not the coder!"
+  },
+  {
+    "timestamp": "2017-07-21T16:18:23.017078",
+    "conversation_id": 382,
+    "user": "Lucia",
+    "message": "anyway that was a lame attempt at irony - the clojure community is extraordinarily irenic. (look, i made a pun! whee!)"
+  },
+  {
+    "timestamp": "2017-07-21T16:18:35.021847",
+    "conversation_id": 382,
+    "user": "Rebeca",
+    "message": "generally multi methods are also global, created with defmulti (technically you could create an anonymous one, but I have never actually seen anyone do that, and it would kind of defeat the purpose)"
+  },
+  {
+    "timestamp": "2017-07-21T16:19:06.035004",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "<@Ramonita> quick question on Integrant (I’m half way through the talk): how would I proceed to mock the implementation of one of the services?"
+  },
+  {
+    "timestamp": "2017-07-21T16:19:08.035746",
+    "conversation_id": 382,
+    "user": "Rebeca",
+    "message": "so if you want to create a mock, you have to use defmethod which effects the global multimethod"
+  },
+  {
+    "timestamp": "2017-07-21T16:19:33.046021",
+    "conversation_id": 382,
+    "user": "Rebeca",
+    "message": "if you use protocols you can generally reify the protocol inline in the test, and outside of the test there is no effect"
+  },
+  {
+    "timestamp": "2017-07-21T16:19:34.046707",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "ah, so the latest defmethod will be used, overriding a previous definition?"
+  },
+  {
+    "timestamp": "2017-07-21T16:19:53.054521",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "that’s a bit nasty"
+  },
+  {
+    "timestamp": "2017-07-21T16:19:54.054978",
+    "conversation_id": 382,
+    "user": "Merrie",
+    "message": "_\"hate a la carte\" joke_"
+  },
+  {
+    "timestamp": "2017-07-21T16:19:59.057265",
+    "conversation_id": 382,
+    "user": "Martina",
+    "message": "<@Lucia> Online peace is a noble goal"
+  },
+  {
+    "timestamp": "2017-07-21T16:20:26.068824",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "For that, I tend to use protocols. In Duct (which builds on Integrant), I call them “boundary protocols”, as they define the I/O boundary of the system."
+  },
+  {
+    "timestamp": "2017-07-21T16:20:29.070096",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "ah nevermind, got an answer by <@Rebeca> :slightly_smiling_face:"
+  },
+  {
+    "timestamp": "2017-07-21T16:20:39.074555",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "oh, I’ll check Duct"
+  },
+  {
+    "timestamp": "2017-07-21T16:20:45.077177",
+    "conversation_id": 382,
+    "user": "Rebeca",
+    "message": "uh, yes, but that is not what I meant"
+  },
+  {
+    "timestamp": "2017-07-21T16:20:46.077450",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "For example: <https://github.com/duct-framework/database.sql/blob/master/src/duct/database/sql.clj>"
+  },
+  {
+    "timestamp": "2017-07-21T16:21:09.087403",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "Instead of just returning the database spec, I wrap it in a record."
+  },
+  {
+    "timestamp": "2017-07-21T16:21:38.099547",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "This allows me to write a protocol against it, and I can mock out the protocol for tests using a tool like Shrubbery."
+  },
+  {
+    "timestamp": "2017-07-21T16:21:57.107706",
+    "conversation_id": 382,
+    "user": "Rebeca",
+    "message": "each multi method has a dispatch table for behaviors, so say you want stick in a :my-special-mock, well that goes in the table associated with the multimethod, less likely to cause harm than actually replacing the dispatch, but still kind of a drag"
+  },
+  {
+    "timestamp": "2017-07-21T16:22:00.109083",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "It’s also useful for having a “local” service that fakes out cloud services or external APIs etc."
+  },
+  {
+    "timestamp": "2017-07-21T16:22:36.124179",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "Yes that’s exactly the sort of application I’m thinking. Two more projects to look at on my list :stuck_out_tongue:"
+  },
+  {
+    "timestamp": "2017-07-21T16:22:47.129558",
+    "conversation_id": 382,
+    "user": "Rebeca",
+    "message": "(following the thread with <@Ramonita>) it looks like he uses protocols for some stuff, so maybe that is less of a problem"
+  },
+  {
+    "timestamp": "2017-07-21T16:23:41.152479",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "<@Ramonita> the last web framework I looked into was Pedestal. Do you have any opinions on it?"
+  },
+  {
+    "timestamp": "2017-07-21T16:23:56.158611",
+    "conversation_id": 382,
+    "user": "Rebeca",
+    "message": "at my last job we used component but had a team member who hated defrecords, so we more or less retro-fitted component to use multimethods instead (which is pretty easy to do) which is where my experience with the pain of mocking that kind of thing comes from"
+  },
+  {
+    "timestamp": "2017-07-21T16:25:47.206033",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "I haven’t use Pedestal in anger. Some ideas it has are good, but it feels more complex than what I need, and it’s web-focused."
+  },
+  {
+    "timestamp": "2017-07-21T16:44:12.681607",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "<@Ramonita> sorry, watching the rest of your talk and reading a bit of Duct’s doc I realise this was a silly question. Duct seems more like an approach to structure an application around Integrant"
+  },
+  {
+    "timestamp": "2017-07-21T16:45:48.723163",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "Right. It provides a template, a bunch of integrant-compatible libraries, and “modules” which are essentially pure functions that transform the Integrant configuration."
+  },
+  {
+    "timestamp": "2017-07-21T16:46:32.741654",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "Modules provide a way of automating gluing together libraries"
+  },
+  {
+    "timestamp": "2017-07-21T16:47:30.767502",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "<@Ramonita> do you have an example of how a module would work?"
+  },
+  {
+    "timestamp": "2017-07-21T16:48:08.784079",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "An example, or an explanation?"
+  },
+  {
+    "timestamp": "2017-07-21T16:48:39.797879",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "explanation, or an explanatory example :slightly_smiling_face:"
+  },
+  {
+    "timestamp": "2017-07-21T16:49:12.812148",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "Okay, let me find something quick…"
+  },
+  {
+    "timestamp": "2017-07-21T16:52:31.898120",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "Actually, I wrote a blog post about this, which might be more useful: <https://www.booleanknot.com/blog/2017/05/09/advancing-duct.html>"
+  },
+  {
+    "timestamp": "2017-07-21T16:53:18.917621",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "<@Ramonita> ah that’s perfect, thank you!"
+  },
+  {
+    "timestamp": "2017-07-21T16:53:27.921734",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "One module is `:duct.module/web`. That sets up a handler and middleware, and looks through the configuration for a web server. If it finds one, it connects the handler to the existing web server. If none exist, then it creates a new one."
+  },
+  {
+    "timestamp": "2017-07-21T16:53:48.930200",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "There’s also: <https://www.booleanknot.com/blog/2017/05/29/building-web-services-with-duct.html>"
+  },
+  {
+    "timestamp": "2017-07-21T16:54:18.942910",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "The explanation I find myself often using for modules are web sessions that are stored in a SQL database."
+  },
+  {
+    "timestamp": "2017-07-21T16:54:25.945856",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "how does it “find the web server” in the config? based on the name of popular web servers?"
+  },
+  {
+    "timestamp": "2017-07-21T16:54:31.948156",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "or a special key?"
+  },
+  {
+    "timestamp": "2017-07-21T16:54:55.958053",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "Keyword inheritance. The `:duct.server.http/jetty` key is derived from `:duct.server/http`."
+  },
+  {
+    "timestamp": "2017-07-21T16:55:21.969429",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "So to find all the web servers in a Duct config, you just run `(ig/find-derived config :duct.server/http)`"
+  },
+  {
+    "timestamp": "2017-07-21T16:56:31.998957",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "The idea is to use `derive` a little like a dictionary definition or a thesaurus. It allows us to describe what a keyword is, to give it some meaning."
+  },
+  {
+    "timestamp": "2017-07-21T16:56:35.000844",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "keyword inheritance is just based on the name + namespace of the keywords? e.g. a keyword X inherits from a keyword Y if X’s namespace is Y’s namespace plus its name?"
+  },
+  {
+    "timestamp": "2017-07-21T16:57:02.012120",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "No, it’s its own thing. Any namespaced keyword can `derive` from any other."
+  },
+  {
+    "timestamp": "2017-07-21T16:57:13.016424",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "Namespaced keywords have multiple inheritance in Clojure."
+  },
+  {
+    "timestamp": "2017-07-21T16:58:06.039102",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "ah, I wasn’t familiar with Clojure’s `clojure.core/derive` function. I’ll look into it before bothering you further"
+  },
+  {
+    "timestamp": "2017-07-21T16:58:10.040927",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "Thanks!"
+  },
+  {
+    "timestamp": "2017-07-21T16:58:26.047682",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "It’s not often used, but I feel like it has some important niches"
+  },
+  {
+    "timestamp": "2017-07-21T16:58:59.061988",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "<https://clojure.org/reference/multimethods>"
+  },
+  {
+    "timestamp": "2017-07-21T17:00:29.100963",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "mmh, so `derive` is effectful from what I gather"
+  },
+  {
+    "timestamp": "2017-07-21T17:01:00.114421",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "Where does it hold the relationship data between keywords? A global registry? I can’t see it setting metadata on the keywords themselves"
+  },
+  {
+    "timestamp": "2017-07-21T17:01:58.139294",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "A global registry. Derive *can* be used functionally if you supply a hierarchy, but mostly it’s used globally."
+  },
+  {
+    "timestamp": "2017-07-21T17:02:12.144841",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "To my mind it’s like vars, or specs."
+  },
+  {
+    "timestamp": "2017-07-21T17:02:22.149050",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "Oh, I think I get what you meant by a “grammar” then. You use keywords + derive to build a sort of ontology?"
+  },
+  {
+    "timestamp": "2017-07-21T17:02:29.152086",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "Exactly :slightly_smiling_face:"
+  },
+  {
+    "timestamp": "2017-07-21T17:03:44.183801",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "Jetty, for instance, is a HTTP server that supports synchronous and asynchronous handlers. So we could write: ``` (derive :duct.server.http/jetty :duct.server/http) (derive :duct.server.http/jetty :duct.server.http/async) (derive :duct.server.http/jetty :duct.server.http/sync) ```"
+  },
+  {
+    "timestamp": "2017-07-21T17:03:59.189742",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "that’s brilliant"
+  },
+  {
+    "timestamp": "2017-07-21T17:04:18.197229",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "If Integrant is the “grammar”, Duct is attempting to build a “vocabulary”."
+  },
+  {
+    "timestamp": "2017-07-21T17:04:44.208065",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "So duct is an ontology for configuration + tools that understand and work with this ontology"
+  },
+  {
+    "timestamp": "2017-07-21T17:05:13.219237",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "Right. That, plus a way of transforming configurations via a preprocessing “prep” stage."
+  },
+  {
+    "timestamp": "2017-07-21T17:05:20.222295",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "Basically query+transformation"
+  },
+  {
+    "timestamp": "2017-07-21T17:05:58.237501",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "I’ll check out Duct’s code if it’s not too complex"
+  },
+  {
+    "timestamp": "2017-07-21T17:06:08.241266",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "That’s super exciting"
+  },
+  {
+    "timestamp": "2017-07-21T17:06:12.243156",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "Start with duct/core"
+  },
+  {
+    "timestamp": "2017-07-21T17:06:34.251976",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "<https://github.com/duct-framework/core/blob/master/src/duct/core.clj>"
+  },
+  {
+    "timestamp": "2017-07-21T17:07:19.269128",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "Essentially Duct tries to solve the problem of wiring up libraries. Even something seemingly trivial, like storing sessions in a SQL database, requires a lot of wiring."
+  },
+  {
+    "timestamp": "2017-07-21T17:07:33.274446",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "You need a database migration to create the SQL table to store the sessions"
+  },
+  {
+    "timestamp": "2017-07-21T17:07:38.276521",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "You need a DB connection"
+  },
+  {
+    "timestamp": "2017-07-21T17:07:40.277203",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "Middleware"
+  },
+  {
+    "timestamp": "2017-07-21T17:07:46.279581",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "Session storage protocol"
+  },
+  {
+    "timestamp": "2017-07-21T17:07:58.283993",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "And a worker process to clean up old sessions"
+  },
+  {
+    "timestamp": "2017-07-21T17:08:52.304703",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "Very hard to do with a normal library, but a module could ask questions like “Where do I register a new periodic cleanup job?” “Where do I add new middleware?” “Where can I add a database migration?”"
+  },
+  {
+    "timestamp": "2017-07-21T17:10:15.336311",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "I guess it’s a form of convention over configuration"
+  },
+  {
+    "timestamp": "2017-07-21T17:10:42.346658",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "But in the sense that with Duct you establish a language to talk about your configuration, deriving Duct concepts"
+  },
+  {
+    "timestamp": "2017-07-21T17:10:56.352138",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "then modules can use this language to understand your configuration and act on it"
+  },
+  {
+    "timestamp": "2017-07-21T17:12:05.378363",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "Right. It borrows a lot from tools like Rails, but whereas Rails used the filesystem as the basis for its convention, Duct uses an immutable data structure."
+  },
+  {
+    "timestamp": "2017-07-21T17:12:06.378916",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "Instead of following some predefined key structure for your configuration, you just need to follow an ontology/grammar"
+  },
+  {
+    "timestamp": "2017-07-21T17:12:24.385976",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "Exactly :slightly_smiling_face:"
+  },
+  {
+    "timestamp": "2017-07-21T17:13:09.402830",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "It’s still early days, but that’s ultimately where Duct is going."
+  },
+  {
+    "timestamp": "2017-07-21T17:13:13.404269",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "Are there any other projects that you know of which take this approach? Obviously ontologies are quite talked about in the context of the semantic web / knowledge bases / etc, but I think this is the first time I’ve seen it applied to a dev tool"
+  },
+  {
+    "timestamp": "2017-07-21T17:15:38.458767",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "Arachne is another of Duct’s inspirations"
+  },
+  {
+    "timestamp": "2017-07-21T17:16:13.471858",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "It takes a similar approach, but I don’t think it emphasises the semantic ontology angle"
+  },
+  {
+    "timestamp": "2017-07-21T17:16:56.487621",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "And rather than a data structure, it uses a bunch of scripting functions to create an in-memory datomic database, which is then translated into a Component system."
+  },
+  {
+    "timestamp": "2017-07-21T17:17:04.490288",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "Duct IMO is a little simpler."
+  },
+  {
+    "timestamp": "2017-07-21T17:20:03.554783",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "<@Ramonita> thanks for taking the time to explain this out! I’ll read up on Duct/Integrant. The theory sounds great; let’s see if it holds up in practice :stuck_out_tongue:"
+  },
+  {
+    "timestamp": "2017-07-21T17:20:25.562889",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "No problem - let me know what you think"
+  },
+  {
+    "timestamp": "2017-07-21T17:21:12.579676",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "The two blog posts I linked, especially the later API-focused one, should give you a good idea of how to start."
+  },
+  {
+    "timestamp": "2017-07-21T17:22:56.615854",
+    "conversation_id": 382,
+    "user": "Gus",
+    "message": "If you want to evaluate mount/component/integrant, I’d recommend starting by just reading them"
+  },
+  {
+    "timestamp": "2017-07-21T17:23:09.620374",
+    "conversation_id": 382,
+    "user": "Gus",
+    "message": "they’re all in the 300-500 LoC range"
+  },
+  {
+    "timestamp": "2017-07-21T17:23:42.632220",
+    "conversation_id": 382,
+    "user": "Lucio",
+    "message": "<@Ramonita> I think I am going to have some fun with `clojure.core/derive` itself too. Such a neat little function"
+  },
+  {
+    "timestamp": "2017-07-21T17:24:37.652131",
+    "conversation_id": 382,
+    "user": "Ramonita",
+    "message": "I wouldn’t say it’s a function that should commonly be used; it’s got niche functionality. But I also think it’s underused. Not many people seem to have heard of it."
+  },
+  {
+    "timestamp": "2017-07-21T17:25:11.664235",
+    "conversation_id": 382,
+    "user": "Gus",
+    "message": "I mean there are things you can only learn by using them in a large project for a long time, or talking to someone who has, but I think reading them is a reasonable starting point"
+  },
+  {
+    "timestamp": "2017-12-08T16:50:25.000382",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "I was actually never sure if `(merge nil {:a 1})` working was reliably supported behavior"
+  },
+  {
+    "timestamp": "2017-12-08T16:50:31.000179",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "The doc string does not indicate that it should work"
+  },
+  {
+    "timestamp": "2017-12-08T16:50:47.000424",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "It is fairly annoying to not utilize it though at times"
+  },
+  {
+    "timestamp": "2017-12-08T16:51:07.000280",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "``` clojure.core/merge ([& maps]) Returns a map that consists of the rest of the maps conj-ed onto the first. If a key occurs in more than one map, the mapping from the latter (left-to-right) will be the mapping in the result. ```"
+  },
+  {
+    "timestamp": "2017-12-08T16:52:17.000054",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "that description seems to imply it shouldn't in fact"
+  },
+  {
+    "timestamp": "2017-12-08T16:52:26.000110",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "because ``` (conj nil {:a 1}) => ({:a 1}) (merge nil {:a 1}) => {:a 1} ```"
+  },
+  {
+    "timestamp": "2017-12-08T16:52:55.000469",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "it is supported, but yeah it makes somethings difficult"
+  },
+  {
+    "timestamp": "2017-12-08T16:52:58.000218",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "<@Aldo> good point"
+  },
+  {
+    "timestamp": "2017-12-08T16:53:23.000189",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "merge uses conj internally, but protects against nil"
+  },
+  {
+    "timestamp": "2017-12-08T16:53:31.000464",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "Just because a fn happens to do some behavior with nil now, doesn’t give me a lot of confidence that I’m not relying on an impl detail"
+  },
+  {
+    "timestamp": "2017-12-08T16:53:47.000240",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "I wish it’d be in the docs for these sorts of edge cases"
+  },
+  {
+    "timestamp": "2017-12-08T16:54:29.000116",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "There are plenty of cases like this though. The `merge` one is just one I’ve wrestled with in my head a few times."
+  },
+  {
+    "timestamp": "2017-12-08T16:54:56.000219",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "Also, I’m thinking it’d be a pretty harsh change to have `merge` stop supporting this behavior - so not likely to change anymore :stuck_out_tongue:"
+  },
+  {
+    "timestamp": "2017-12-08T16:54:58.000326",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "core specs will help with this, can almost guarantee it won't go in the docstring"
+  },
+  {
+    "timestamp": "2017-12-08T16:55:34.000252",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "merge supports a couple other surprises, see the last comment in <https://dev.clojure.org/jira/browse/CLJ-1458>"
+  },
+  {
+    "timestamp": "2017-12-08T16:56:08.000215",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "I feel like if a spec is added to merge that says (s/nilable m) then a subsequent docstring PR that clarified what happened in the case of nil would prob be accepted"
+  },
+  {
+    "timestamp": "2017-12-08T16:57:05.000269",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "<@Guillermo> good point on the core.specs. I just took a look over at that (haven’t looked in a while). It still has a lot more functions to cover still right? At least from what I see so far."
+  },
+  {
+    "timestamp": "2017-12-08T16:58:17.000152",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "It's mostly the main macros right now, <@Sonny> has more stuff pending somewhere, and there are a couple of github users that have their own specs of core"
+  },
+  {
+    "timestamp": "2017-12-08T16:58:31.000276",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "ah ok"
+  },
+  {
+    "timestamp": "2017-12-08T16:59:22.000149",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "generally clojure docstrings don't comprehensively specify edge-cases, but <http://clojuredocs.org|clojuredocs.org> or whatever the thing-du-jour is certainly can"
+  },
+  {
+    "timestamp": "2017-12-08T17:00:35.000234",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "\"Someone should\" add an API to third-party clojuredocs and integrate them with tooling"
+  },
+  {
+    "timestamp": "2017-12-08T17:01:28.000348",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "I’m typically ok with that idea"
+  },
+  {
+    "timestamp": "2017-12-08T17:02:18.000203",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "Then other times I have a hard time deciding whether I’m relying on an odd impl detail or not"
+  },
+  {
+    "timestamp": "2017-12-08T17:02:22.000389",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "hah :stuck_out_tongue:"
+  },
+  {
+    "timestamp": "2017-12-08T17:02:45.000016",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "Interesting Jira though, read through the CLJ-1458 one"
+  },
+  {
+    "timestamp": "2017-12-08T17:05:39.000281",
+    "conversation_id": 1674,
+    "user": "Micha",
+    "message": "The stricter interpretation you take of the doc strings, the less likely you are to be relying on an odd impl detail."
+  },
+  {
+    "timestamp": "2017-12-08T17:06:53.000469",
+    "conversation_id": 1674,
+    "user": "Micha",
+    "message": "I know that is still pretty vague advice, but at least in the case of merge, if you never pass it nil, you are safe. If you do, maybe it could return anything at all or raise an exception in Clojure 1.13"
+  },
+  {
+    "timestamp": "2017-12-08T17:07:40.000093",
+    "conversation_id": 1674,
+    "user": "Micha",
+    "message": "Not saying it is likely, given the backwards compatibility effort Rich et al put into Clojure."
+  },
+  {
+    "timestamp": "2017-12-08T17:07:56.000174",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "<@Micha> yeah, and I’ve found myself a few times being defensive about it out of that sort of worry ``` (update x merge {:a 1}) ; not this (update x (fnil merge {}) {:a 1}) ; this ```"
+  },
+  {
+    "timestamp": "2017-12-08T17:07:58.000089",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "that sort of thing"
+  },
+  {
+    "timestamp": "2017-12-08T17:08:16.000257",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "I then just start to wonder if it is worth the nil-guarding efforts"
+  },
+  {
+    "timestamp": "2017-12-08T17:08:25.000140",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "and (generally) the more the docstring promises, the narrower a future path might be"
+  },
+  {
+    "timestamp": "2017-12-08T17:09:07.000356",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "the trade-off, make more verbose code to not rely on things vs hope for the best, but be prepared for potentially more difficult upgrades in the future"
+  },
+  {
+    "timestamp": "2017-12-08T17:09:29.000230",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "and perhaps watch the Jiras carefully and fight for whatever obscure use-case you see that someone is about to break :stuck_out_tongue:"
+  },
+  {
+    "timestamp": "2017-12-08T17:09:49.000121",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "I’m not saying what is right vs wrong here. Just explaining my internal conflict and struggle"
+  },
+  {
+    "timestamp": "2017-12-08T17:10:02.000188",
+    "conversation_id": 1674,
+    "user": "Margaret",
+    "message": "<@Petronila> total aside: that update could just use assoc ```=> (assoc nil :a 0) {:a 0}```"
+  },
+  {
+    "timestamp": "2017-12-08T17:10:17.000487",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "<@Margaret> hah thanks, I didn’t intend to make something realistic"
+  },
+  {
+    "timestamp": "2017-12-08T17:10:27.000107",
+    "conversation_id": 1674,
+    "user": "Margaret",
+    "message": "that’s what makes it an aside haha"
+  },
+  {
+    "timestamp": "2017-12-08T17:10:27.000330",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "wasn’t a great example :stuck_out_tongue:"
+  },
+  {
+    "timestamp": "2017-12-08T17:10:33.000115",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "(and `nil` in merge is only problematic in the first argument)"
+  },
+  {
+    "timestamp": "2017-12-08T17:10:58.000193",
+    "conversation_id": 1674,
+    "user": "Margaret",
+    "message": "oooh `(fnil merge {} {})` is also valid though"
+  },
+  {
+    "timestamp": "2017-12-08T17:11:47.000473",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "What is a spec for `merge`?"
+  },
+  {
+    "timestamp": "2017-12-08T17:12:01.000293",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "at least the :args part"
+  },
+  {
+    "timestamp": "2017-12-08T17:12:18.000006",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "and ignoring the GIGO cases"
+  },
+  {
+    "timestamp": "2017-12-08T17:12:56.000062",
+    "conversation_id": 1674,
+    "user": "Margaret",
+    "message": "it’s one of my pet clojure style issues, I just had to say something, I compulsively replace calls to merge that use a map literal as a second arg with calls to assoc (or instruct co-workers to do so when doing code reviews)"
+  },
+  {
+    "timestamp": "2017-12-08T17:18:44.000155",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "seems like `if-not` could just ditch the expansion with `not` i.e. ``` (defmacro if-not ([test then] `(if ~test nil ~then)) ([test then else] `(if ~test ~else ~then)))```"
+  },
+  {
+    "timestamp": "2017-12-08T17:19:09.000275",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "right, it’s just `if` with the args flipped."
+  },
+  {
+    "timestamp": "2017-12-08T17:19:23.000096",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "minor thing."
+  },
+  {
+    "timestamp": "2017-12-08T17:22:14.000461",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "nope, that's the GIGO"
+  },
+  {
+    "timestamp": "2017-12-08T17:22:36.000495",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "garbage in garbage out"
+  },
+  {
+    "timestamp": "2017-12-08T17:22:41.000172",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "ah, I thought you were speccing the current behaviour :)"
+  },
+  {
+    "timestamp": "2017-12-08T17:23:09.000223",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "GIGO is such a punitive perspective."
+  },
+  {
+    "timestamp": "2017-12-08T17:23:42.000299",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "Ah, you are right <@Kareen>"
+  },
+  {
+    "timestamp": "2017-12-08T17:24:48.000253",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "i am definitely wrong, it's 530PM EST on friday."
+  },
+  {
+    "timestamp": "2017-12-08T17:25:21.000095",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "TIL `(merge)` works"
+  },
+  {
+    "timestamp": "2017-12-08T17:25:33.000247",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "(I think I confused myself with the metadata propagation, which only happens when the first arg is not nil)"
+  },
+  {
+    "timestamp": "2017-12-08T17:26:05.000501",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "But `:m0` should be `(s/nilable (s/keys))`"
+  },
+  {
+    "timestamp": "2017-12-08T17:26:12.000107",
+    "conversation_id": 1674,
+    "user": "Margaret",
+    "message": "<@Kareen> the best parge is that `(merge)` returns nil"
+  },
+  {
+    "timestamp": "2017-12-08T17:26:18.000231",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "haha yes ^"
+  },
+  {
+    "timestamp": "2017-12-08T17:26:31.000456",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "I have a feeling that part is definitely gigo"
+  },
+  {
+    "timestamp": "2017-12-08T17:26:32.000277",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "it is a strange implementation"
+  },
+  {
+    "timestamp": "2017-12-08T17:26:45.000391",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "the `some identity` check at the beginning"
+  },
+  {
+    "timestamp": "2017-12-08T17:26:47.000259",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "and it's not really supposed to work"
+  },
+  {
+    "timestamp": "2017-12-08T17:27:28.000168",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "i’ve always found it punitive."
+  },
+  {
+    "timestamp": "2017-12-08T17:27:59.000255",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "there's nothing particularly attractive about it, it's just reality in a dynamic langauge. spec is moving us towards Garbage In EXCEPTION"
+  },
+  {
+    "timestamp": "2017-12-08T17:28:09.000449",
+    "conversation_id": 1674,
+    "user": "Margaret",
+    "message": "<@Kareen> merge -> (merge nil nil nil nil) get -> (get get get get)"
+  },
+  {
+    "timestamp": "2017-12-08T17:28:13.000394",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "it can be <@Deandrea>... I think spec will _really_ help with that."
+  },
+  {
+    "timestamp": "2017-12-08T17:28:35.000244",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "``` user=> (merge [] {}) [{}] ```"
+  },
+  {
+    "timestamp": "2017-12-08T17:28:46.000157",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "no matter how many times I see that get over the years it always makes me chuckle"
+  },
+  {
+    "timestamp": "2017-12-08T17:29:07.000161",
+    "conversation_id": 1674,
+    "user": "Margaret",
+    "message": "it’s probably one of my greatest discoveries"
+  },
+  {
+    "timestamp": "2017-12-08T17:29:17.000254",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "one of many"
+  },
+  {
+    "timestamp": "2017-12-08T17:29:47.000351",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Guillermo> yes, that is one thing i find attractive about it (spec)."
+  },
+  {
+    "timestamp": "2017-12-08T17:29:55.000292",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "somebody should work on a dialect of swearjure that only uses weird stuff like this"
+  },
+  {
+    "timestamp": "2017-12-08T17:30:13.000345",
+    "conversation_id": 1674,
+    "user": "Margaret",
+    "message": "for those who are unfamiliar ```=> (= get ((get get get get) {get get} get)) true```"
+  },
+  {
+    "timestamp": "2017-12-08T17:31:59.000310",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "well, how would you prevent gigo in clojure? spec! what happens if you don't do something like that? gigo! ie, gigo is just the default case in a dynamic language where data is passed around in structures with uniform interfaces"
+  },
+  {
+    "timestamp": "2017-12-08T17:32:49.000359",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Aldo> that may be true from some cases but that has more to do with the programmer who wrote the source. it’s not inherently a problem in dynamic languages."
+  },
+  {
+    "timestamp": "2017-12-08T17:33:15.000008",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "another option would be to sanity check all inputs manually. I'm glad no one took the time to do that seeing as spec exists now and that code would just be noise"
+  },
+  {
+    "timestamp": "2017-12-08T17:33:58.000247",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Aldo> i disagree. `:pre` and `:post` checks, which i use heavily, are useful."
+  },
+  {
+    "timestamp": "2017-12-08T17:34:09.000355",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "but they're super noisy"
+  },
+  {
+    "timestamp": "2017-12-08T17:34:15.000073",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "and slow"
+  },
+  {
+    "timestamp": "2017-12-08T17:34:19.000149",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "for development."
+  },
+  {
+    "timestamp": "2017-12-08T17:34:41.000440",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "and only when `*check-asserts*` is true. instrumentation with spec is extremely slow as well."
+  },
+  {
+    "timestamp": "2017-12-08T17:34:53.000373",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "they're certainly useful. but they're noisy, and quite a lot of work. I think spec is a much more elegant solution because it gives you some sort of structural documentation and errors as well as validation"
+  },
+  {
+    "timestamp": "2017-12-08T17:35:46.000146",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "if someone had gone through core and :pre'd every function then the current work of going through core and spec'ing every function would feel a bit redundant"
+  },
+  {
+    "timestamp": "2017-12-08T17:35:53.000042",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "so basically, the argument in favor of GIGO is “i don’t want to write the sanity checks for my code because it’s noisy”?"
+  },
+  {
+    "timestamp": "2017-12-08T17:36:00.000287",
+    "conversation_id": 1674,
+    "user": "Charity",
+    "message": "pretty much"
+  },
+  {
+    "timestamp": "2017-12-08T17:36:18.000311",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "\"I don't want to write the sanity checks because it's noisy and I have more important things to write\""
+  },
+  {
+    "timestamp": "2017-12-08T17:36:23.000137",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "that seems like a weak argument against clearly expressing your domain, range, semantics, etc."
+  },
+  {
+    "timestamp": "2017-12-08T17:36:32.000383",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "and that's why spec has been created?"
+  },
+  {
+    "timestamp": "2017-12-08T17:36:37.000267",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "yes."
+  },
+  {
+    "timestamp": "2017-12-08T17:36:40.000363",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "Leverage"
+  },
+  {
+    "timestamp": "2017-12-08T17:36:44.000335",
+    "conversation_id": 1674,
+    "user": "Margaret",
+    "message": "not just that - overly strict preconditions can make later extensions tedious or incompatible"
+  },
+  {
+    "timestamp": "2017-12-08T17:37:09.000121",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Margaret> i can see that, although, i’ve never come up against that in practice."
+  },
+  {
+    "timestamp": "2017-12-08T17:37:58.000132",
+    "conversation_id": 1674,
+    "user": "Margaret",
+    "message": "<@Deandrea> simple example - imagine whitelisting the allowed keys in a hash-map - you now need to rewrite your code as soon as code around it is extended, even though it shouldn’t have to care"
+  },
+  {
+    "timestamp": "2017-12-08T17:38:12.000390",
+    "conversation_id": 1674,
+    "user": "Margaret",
+    "message": "other cases are more subtle but often just as tedious"
+  },
+  {
+    "timestamp": "2017-12-08T17:38:19.000115",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Aldo> i’ve seen that attitude fail catastrophically though, enough so that `:post (some? %)` has saved me hours of debugging."
+  },
+  {
+    "timestamp": "2017-12-08T17:39:38.000412",
+    "conversation_id": 1674,
+    "user": "Margaret",
+    "message": "you can get future proof code without a bunch of complex incantations by failing to validate, once you validate future proofing is more work, and adds complexity in which bugs can hide"
+  },
+  {
+    "timestamp": "2017-12-08T17:39:56.000075",
+    "conversation_id": 1674,
+    "user": "Margaret",
+    "message": "(unless the validating comes from the outside, eg. spec)"
+  },
+  {
+    "timestamp": "2017-12-08T17:40:12.000172",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "I don't think anyone disagrees that some validation can be very useful. which is presumably why schema became so popular and why spec was created. I personally think on balance :pre and :post don't give enough extra value to go along with the validation to make them worth it the vast majority of the time. schema gave a bit more value and now spec gives even more to help tip the scales towards making it worth doing"
+  },
+  {
+    "timestamp": "2017-12-08T17:40:17.000253",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Margaret> i suppose my argument there would that, to your point, the constraint is too tight. spec doesn’t alleviate you from that either."
+  },
+  {
+    "timestamp": "2017-12-08T17:40:49.000211",
+    "conversation_id": 1674,
+    "user": "Charity",
+    "message": "if only there were technologies for late-parameterizing specifications with additional requirements"
+  },
+  {
+    "timestamp": "2017-12-08T17:41:19.000174",
+    "conversation_id": 1674,
+    "user": "Margaret",
+    "message": "<https://i.imgflip.com/20r5et.jpg>"
+  },
+  {
+    "timestamp": "2017-12-08T17:41:24.000399",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": ":joy:"
+  },
+  {
+    "timestamp": "2017-12-08T17:41:30.000171",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "lol"
+  },
+  {
+    "timestamp": "2017-12-08T17:41:37.000239",
+    "conversation_id": 1674,
+    "user": "Charity",
+    "message": ">.>"
+  },
+  {
+    "timestamp": "2017-12-08T17:42:29.000223",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "so GIGO is not salient when constraints are and vice-versa?"
+  },
+  {
+    "timestamp": "2017-12-08T17:42:36.000232",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "I don't understand what we're arguing about, clojure had a GIGO problem and now we have spec to avoid that"
+  },
+  {
+    "timestamp": "2017-12-08T17:42:37.000432",
+    "conversation_id": 1674,
+    "user": "Micha",
+    "message": "I thought GIGO in Clojure was purely motivated by run-time efficiency ?"
+  },
+  {
+    "timestamp": "2017-12-08T17:43:05.000409",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "I wouldn't say purely but that's the biggest reason"
+  },
+  {
+    "timestamp": "2017-12-08T17:43:07.000369",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Kareen> i was simply trying to understand the attraction to the GIGO rationale."
+  },
+  {
+    "timestamp": "2017-12-08T17:43:16.000272",
+    "conversation_id": 1674,
+    "user": "Micha",
+    "message": "And have any core Clojure developers ever called it GIGO, or is that something originated by others?"
+  },
+  {
+    "timestamp": "2017-12-08T17:43:19.000265",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "GIGO isn't a philosophy or a rationale, it's just a statement. if you pass nonsense in that there's no validation checks around you can expect to get nonsense out"
+  },
+  {
+    "timestamp": "2017-12-08T17:43:38.000215",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "<@Micha> I'm sure I've seen alex call it GIGO more than once :)"
+  },
+  {
+    "timestamp": "2017-12-08T17:43:56.000143",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "i’ve seen that too."
+  },
+  {
+    "timestamp": "2017-12-08T17:44:15.000057",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Aldo> in some cases it is a rationale."
+  },
+  {
+    "timestamp": "2017-12-08T17:44:25.000233",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "I would like to see one of those cases"
+  },
+  {
+    "timestamp": "2017-12-08T17:44:33.000260",
+    "conversation_id": 1674,
+    "user": "Margaret",
+    "message": "while GIGO is just a fact, there’s a rationale to prefering code with GIGO behavior over defensive code - which does describe clojure code before spec"
+  },
+  {
+    "timestamp": "2017-12-08T17:45:17.000287",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "yeah but that preference is because of \"performance\" or \"cleaner code\" or \"whatever\". it's not like anyone is specifically trying to write code to silently fail"
+  },
+  {
+    "timestamp": "2017-12-08T17:45:42.000231",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Aldo> <https://clojurians.slack.com/archives/C03S1KBA2/p1512771734000461>"
+  },
+  {
+    "timestamp": "2017-12-08T17:46:03.000415",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "meh, you make it sound like most GIGO in clojure was a *design decision* when in reality it is just lack of validation to avoid: - runtime performance costs - having to manually write explicit checks for everything"
+  },
+  {
+    "timestamp": "2017-12-08T17:46:13.000437",
+    "conversation_id": 1674,
+    "user": "Micha",
+    "message": "<@Aldo> If you mean an example of GIGO being a rationale to avoid adding run-time type checks, the clojure.set operators are the biggest example in my mind, e.g. <https://dev.clojure.org/jira/browse/CLJ-1953>"
+  },
+  {
+    "timestamp": "2017-12-08T17:46:21.000285",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "<@Deandrea> ghadi isn't a core developer"
+  },
+  {
+    "timestamp": "2017-12-08T17:46:39.000299",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Kareen> what does that have to do with the discussion?"
+  },
+  {
+    "timestamp": "2017-12-08T17:46:50.000089",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "that's what andy asked"
+  },
+  {
+    "timestamp": "2017-12-08T17:46:59.000442",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "they're using \"gigo\" to describe \"that's a case where the function does something unintended because you passed in something unintended\". I don't see anyone saying \"it should be that way cuz gigo\""
+  },
+  {
+    "timestamp": "2017-12-08T17:47:01.000099",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "i was merely interested in why GIGO is floated as an answer ever."
+  },
+  {
+    "timestamp": "2017-12-08T17:47:33.000023",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "because it's a succinct and accurate one?"
+  },
+  {
+    "timestamp": "2017-12-08T17:47:34.000179",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "look, s/GIGO/undefined behaviour/"
+  },
+  {
+    "timestamp": "2017-12-08T17:47:55.000147",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "gigo is just shorter to type"
+  },
+  {
+    "timestamp": "2017-12-08T17:48:13.000124",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Kareen> ah, okay."
+  },
+  {
+    "timestamp": "2017-12-08T17:48:23.000131",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Aldo> accurate?"
+  },
+  {
+    "timestamp": "2017-12-08T17:48:34.000156",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": ":joy:"
+  },
+  {
+    "timestamp": "2017-12-08T17:48:39.000230",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "<@Micha> no one is saying they're not validating clojure.set \"because gigo\". If you were to specifically ask my guess would be \"because performance and can't be bothered\""
+  },
+  {
+    "timestamp": "2017-12-08T17:49:00.000235",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Aldo> i’m pretty sure that’s been floated as a rationale in that discussion."
+  },
+  {
+    "timestamp": "2017-12-08T17:49:21.000242",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "no"
+  },
+  {
+    "timestamp": "2017-12-08T17:49:37.000374",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "core members have said in multiple forums that spec will \"solve\" the gigo issues of clojure.set"
+  },
+  {
+    "timestamp": "2017-12-08T17:49:46.000166",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "so clearly gigo is not a rationale"
+  },
+  {
+    "timestamp": "2017-12-08T17:49:54.000232",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "in one of the linked tickets \"Now that `set` is faster for sets, I think we could actually add checking for sets in some places where we might not have before. \""
+  },
+  {
+    "timestamp": "2017-12-08T17:50:05.000401",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "or that ^"
+  },
+  {
+    "timestamp": "2017-12-08T17:50:11.000408",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "so the previous reason was performance. and the current reason is \"better things to do so far\""
+  },
+  {
+    "timestamp": "2017-12-08T17:50:35.000227",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "also, lucky they did those better things, because they made spec! and now that validation is trivially added in a uniform way rather than ad-hoc"
+  },
+  {
+    "timestamp": "2017-12-08T17:53:44.000027",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Kareen> my line of question was in general not with respect to only core members."
+  },
+  {
+    "timestamp": "2017-12-08T17:54:18.000346",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "it’s was more of “i’ve seen this GIGO thing be used as a rationale in the context of the clojure community and i’m curious what motivates it.”"
+  },
+  {
+    "timestamp": "2017-12-08T17:54:41.000169",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "right, I was assuming we were specifically talking about core"
+  },
+  {
+    "timestamp": "2017-12-08T17:55:40.000292",
+    "conversation_id": 1674,
+    "user": "Micha",
+    "message": "<@Deandrea> The community cannot change clojure.core without the approval of one person. If someone else gives a rationale for what changes in clojure.core, or does not change in clojure.core, it is based on their interpretation/guesstimate of the reasons."
+  },
+  {
+    "timestamp": "2017-12-08T17:57:44.000253",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "there you go :)"
+  },
+  {
+    "timestamp": "2017-12-08T17:57:52.000244",
+    "conversation_id": 1674,
+    "user": "Micha",
+    "message": "My interpretation is that \"can't be bothered to add the checks\" seems unlikely for things like clojure.set functions, since many people would have been happy to provide patches for those years ago if they were desired by the core developer team. spec being a far more general tool is fantastic, and I'm glad it was created."
+  },
+  {
+    "timestamp": "2017-12-08T17:57:59.000059",
+    "conversation_id": 1674,
+    "user": "Sonny",
+    "message": "that’d be like, useful"
+  },
+  {
+    "timestamp": "2017-12-08T17:58:10.000329",
+    "conversation_id": 1674,
+    "user": "Sonny",
+    "message": "you don’t even have to wait for them to be in core to use them"
+  },
+  {
+    "timestamp": "2017-12-08T17:58:16.000345",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Micha> i understand that, however, my question was more broad in scope. i’m not calling out clojure core, the libraries, or the members. it was a question for the room in the context of the community purely because i’ve seen it be a rationale for doing something not bound by the performance reason."
+  },
+  {
+    "timestamp": "2017-12-08T17:58:20.000034",
+    "conversation_id": 1674,
+    "user": "Sonny",
+    "message": "just put ’em in a namespace and load them"
+  },
+  {
+    "timestamp": "2017-12-08T17:59:13.000132",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "the typing thing, well, that’s effectively a fallacy (in my opinion)."
+  },
+  {
+    "timestamp": "2017-12-08T17:59:45.000272",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "to say “i won’t do _x_ because typing” can be a fine argument in certain situations but in general it’s very weak."
+  },
+  {
+    "timestamp": "2017-12-08T18:00:59.000054",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "the point was simply that you see that kind of beahaviour less in typed languages (at an unacceptable cost). again. not a rationale. a statement"
+  },
+  {
+    "timestamp": "2017-12-08T18:01:00.000243",
+    "conversation_id": 1674,
+    "user": "Sonny",
+    "message": "in my experience, writing specs for core stuff can bring out many subtle questions. going through those and teasing apart what is expected, what works but is unexpected, and what doesn’t work now but we might want to work in the future has some measure of art to it."
+  },
+  {
+    "timestamp": "2017-12-08T18:01:04.000223",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "the way i read that argument is “my program won’t/will have this set of properties because (not) typing”."
+  },
+  {
+    "timestamp": "2017-12-08T18:01:48.000346",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "I don't understand what \"typing\" you mean here :) the fingers on a keyboard one or the holy war one"
+  },
+  {
+    "timestamp": "2017-12-08T18:02:07.000066",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Kareen> fingers on the board."
+  },
+  {
+    "timestamp": "2017-12-08T18:02:56.000163",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "i don’t believe in arguing about static vs dynamic typing. it’s a pointless endeavor. folks should be open to good ideas period and stop obsessing about typing discipline."
+  },
+  {
+    "timestamp": "2017-12-08T18:03:01.000395",
+    "conversation_id": 1674,
+    "user": "Johana",
+    "message": "congrats on clojure 1.9.0!"
+  },
+  {
+    "timestamp": "2017-12-08T18:03:34.000081",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "i’m actually filled with a bit of dread now because it means i have to finish garden 2.0.0. :joy:"
+  },
+  {
+    "timestamp": "2017-12-08T18:03:43.000087",
+    "conversation_id": 1674,
+    "user": "Sonny",
+    "message": "I’m celebrating with some Templeton Rye 6 year myself :)"
+  },
+  {
+    "timestamp": "2017-12-08T18:05:13.000072",
+    "conversation_id": 1674,
+    "user": "Johana",
+    "message": "I celebrated by upgrading our dev branch and pushed to staging"
+  },
+  {
+    "timestamp": "2017-12-08T18:05:37.000341",
+    "conversation_id": 1674,
+    "user": "Sonny",
+    "message": "I have some scotch that would qualify, but I keep coming back to this Templeton lately"
+  },
+  {
+    "timestamp": "2017-12-08T18:06:07.000022",
+    "conversation_id": 1674,
+    "user": "Charity",
+    "message": "3pm PST, I’m in for 1.9.0 scotch :smile:"
+  },
+  {
+    "timestamp": "2017-12-08T18:06:42.000214",
+    "conversation_id": 1674,
+    "user": "Micha",
+    "message": "\"Ahhh, the 1.9.0 --- that was a good version for Scotch...\""
+  },
+  {
+    "timestamp": "2017-12-08T18:06:48.000217",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "ahaha"
+  },
+  {
+    "timestamp": "2017-12-08T18:07:31.000092",
+    "conversation_id": 1674,
+    "user": "Sonny",
+    "message": "it’s like they were all drunk or something"
+  },
+  {
+    "timestamp": "2017-12-08T18:07:53.000037",
+    "conversation_id": 1674,
+    "user": "Sonny",
+    "message": "on to Clojure 1.10 :)"
+  },
+  {
+    "timestamp": "2017-12-08T18:08:21.000317",
+    "conversation_id": 1674,
+    "user": "Sonny",
+    "message": "well the last few weeks has mostly been me rewriting the docs over and over at Rich’s direction :)"
+  },
+  {
+    "timestamp": "2017-12-08T18:08:43.000335",
+    "conversation_id": 1674,
+    "user": "Micha",
+    "message": "Gotta make sure the docs don't over-promise :slightly_smiling_face:"
+  },
+  {
+    "timestamp": "2017-12-08T18:08:46.000037",
+    "conversation_id": 1674,
+    "user": "Sonny",
+    "message": "but also giving it some soak time in case anything came up"
+  },
+  {
+    "timestamp": "2017-12-08T18:08:56.000173",
+    "conversation_id": 1674,
+    "user": "Micha",
+    "message": "Sorry, I couldn't resist. Bad me["
+  },
+  {
+    "timestamp": "2017-12-08T18:09:05.000330",
+    "conversation_id": 1674,
+    "user": "Sonny",
+    "message": "no, that’s true :)"
+  },
+  {
+    "timestamp": "2017-12-08T18:09:33.000042",
+    "conversation_id": 1674,
+    "user": "Sonny",
+    "message": "scottish blessing I think"
+  },
+  {
+    "timestamp": "2017-12-08T18:10:15.000187",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": ":thumbsup_all: to the CLI stuff."
+  },
+  {
+    "timestamp": "2017-12-08T18:14:03.000124",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Audie> are you able to patch your test (or code) in such a way that it does not require the task to be executed asynchronously? i know that’s not answering your question, however, it’s one i would ask myself in that situation."
+  },
+  {
+    "timestamp": "2017-12-08T18:16:37.000219",
+    "conversation_id": 1674,
+    "user": "Audie",
+    "message": "<@Deandrea> I don’t see a way to do that. I have to call this async function and wait for the entire process to finish. Otherwise, when I go to the database the data is not there yet"
+  },
+  {
+    "timestamp": "2017-12-08T18:18:31.000336",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Audie> you could use a promise or a future."
+  },
+  {
+    "timestamp": "2017-12-08T18:22:57.000164",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "someone else might have a more elegant solution."
+  },
+  {
+    "timestamp": "2017-12-08T18:23:34.000077",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "sounds like that’s the place in the code you need to patch."
+  },
+  {
+    "timestamp": "2017-12-08T18:24:31.000251",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "so, yes. you need to be able to deliver to the promise when the async task completes. i’m guessing there’s probably a function or something that gets handed to whatever does the async work."
+  },
+  {
+    "timestamp": "2017-12-08T18:29:38.000098",
+    "conversation_id": 1674,
+    "user": "Audie",
+    "message": "I see.. thanks for the help! I’ll try to fix this"
+  },
+  {
+    "timestamp": "2017-12-08T18:40:30.000030",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Daniell> yes, that was a typo."
+  },
+  {
+    "timestamp": "2017-12-08T18:40:39.000156",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "thank you for catching that."
+  },
+  {
+    "timestamp": "2017-12-08T18:41:21.000211",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "<@Berry> if you use conj/peek/pop, vectors and lists behave the same as stacks"
+  },
+  {
+    "timestamp": "2017-12-08T18:41:34.000149",
+    "conversation_id": 1674,
+    "user": "Daniell",
+    "message": "<@Deandrea> I was genuinely surprised it \"worked\" -- I rarely use `:pre`/`:post` so I nearly always have to look up the syntax!"
+  },
+  {
+    "timestamp": "2017-12-08T18:41:52.000171",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "I tend to use vectors as stacks just because `pop-n` and `peek-n` are easier to implement efficiently on vectors"
+  },
+  {
+    "timestamp": "2017-12-08T18:42:01.000107",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Berry> +1 for vectors. and enjoy the concatenative journey. :slightly_smiling_face:"
+  },
+  {
+    "timestamp": "2017-12-08T18:42:07.000090",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "<@Berry> no, all those operations are constant time on both vectors and lists"
+  },
+  {
+    "timestamp": "2017-12-08T18:42:31.000019",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "<@Kareen>: I think vector is log_32 #-elemes, which is <= 5 in most caeds, but technically log n"
+  },
+  {
+    "timestamp": "2017-12-08T18:43:51.000099",
+    "conversation_id": 1674,
+    "user": "Daniell",
+    "message": "I was actually sufficiently awed by Gershwin at one point that I tried it out at work and wrote a few functions in the \"Forth\" style of Clojure! :slightly_smiling_face:"
+  },
+  {
+    "timestamp": "2017-12-08T18:44:12.000247",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "<@Berry> no that's not correct, conj/pop/peek on vectors are amortized constant time, not log_32, nth/assoc are log_32 on vectors"
+  },
+  {
+    "timestamp": "2017-12-08T18:44:16.000167",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "<@Daniell>: I've lost track the # of afternoons I've lost due to you providing fasicnating links."
+  },
+  {
+    "timestamp": "2017-12-08T18:44:31.000204",
+    "conversation_id": 1674,
+    "user": "Daniell",
+    "message": "(but since it relies on a fork of Clojure and wasn't being updated, I quickly went back to pure Clojure)"
+  },
+  {
+    "timestamp": "2017-12-08T18:45:15.000020",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "<@Kareen>: conj has to be log_32 time as it has to create a new node for every level of the b-tree"
+  },
+  {
+    "timestamp": "2017-12-08T18:45:36.000319",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "clojure's persistent vectors are not b-trees"
+  },
+  {
+    "timestamp": "2017-12-08T18:45:58.000254",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "I thought they were btrees with 32 fanout -- if not btrees, what are they?"
+  },
+  {
+    "timestamp": "2017-12-08T18:46:25.000004",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "<http://hypirion.com/musings/understanding-persistent-vector-pt-1>"
+  },
+  {
+    "timestamp": "2017-12-08T18:46:50.000266",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Berry> if you’re interested have a look at factor, joy, cat, and kitten in this space as well."
+  },
+  {
+    "timestamp": "2017-12-08T18:47:13.000243",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "factor is a ton of fun."
+  },
+  {
+    "timestamp": "2017-12-08T18:47:17.000098",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "<@Berry> in particular <http://hypirion.com/musings/understanding-persistent-vector-pt-3>"
+  },
+  {
+    "timestamp": "2017-12-08T18:47:26.000236",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "this is the optimization that makes conj amortized constant time"
+  },
+  {
+    "timestamp": "2017-12-08T18:47:55.000120",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "same for pop/peek"
+  },
+  {
+    "timestamp": "2017-12-08T18:48:31.000363",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "1. the depth of the tree is log_32 n 2. when we do a conj, we have to create a new node at each level of the tree ^-- which is the two above statements is false ? -- because if they're both true, it's log_32 n time EVERY TIME"
+  },
+  {
+    "timestamp": "2017-12-08T18:49:07.000290",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "2 is not true"
+  },
+  {
+    "timestamp": "2017-12-08T18:49:55.000250",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "``` Instead of keeping the rightmost leaf in the tree itself, we keep a direct reference to it in the vector header: That's the last block which has been added to the vector head since last blogpost. The reference to the rightmost leaf node is called the tail. ``` ah"
+  },
+  {
+    "timestamp": "2017-12-08T18:49:59.000135",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "that's clever; bronsa++"
+  },
+  {
+    "timestamp": "2017-12-08T18:50:15.000146",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "well I didn't come up with any of this"
+  },
+  {
+    "timestamp": "2017-12-08T18:50:33.000086",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "thanks for correcting me on this time, I've been thinking conj was log_32 n time"
+  },
+  {
+    "timestamp": "2017-12-08T18:50:33.000299",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": ":smile:"
+  },
+  {
+    "timestamp": "2017-12-08T18:50:49.000176",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "wrt \"what are they\", I've heard the clj vector impl called bitmapped vector trie, not sure if there's a better name"
+  },
+  {
+    "timestamp": "2017-12-08T18:52:17.000298",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "<@Daniell>: I feel like we can get most of forth in clojure by defining macro `f->`, where it behaves like `->` except 1. if it sees a constant (number, kw, string), it pushes it to the stack 2. all functionsin it take stack as input and produces stack as output"
+  },
+  {
+    "timestamp": "2017-12-08T18:57:08.000126",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Berry> the thing is though you’ll need to come up with a way to call out how much of the stack to consume for fn’s that have multiple arities."
+  },
+  {
+    "timestamp": "2017-12-08T18:57:32.000165",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "e.g. how do you interpret `[\"foo\" \"bar\" \"baz\" str]`?"
+  },
+  {
+    "timestamp": "2017-12-08T18:58:11.000004",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "<https://twitter.com/brandonbloom/status/528262785642545153> this is still my favourite impl of stack programming in clojure :)"
+  },
+  {
+    "timestamp": "2017-12-08T18:58:49.000051",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "<https://github.com/brandonbloom/factjor> for a more useful impl"
+  },
+  {
+    "timestamp": "2017-12-08T18:59:53.000016",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": ":+1:"
+  },
+  {
+    "timestamp": "2017-12-08T19:00:52.000297",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "<@Deandrea>: afaik, forth doesn't support var-arity functions, so f-> won't either"
+  },
+  {
+    "timestamp": "2017-12-08T19:01:06.000182",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "all functions passed to f-> take a single arg (the stack) as input and produces a stack as output"
+  },
+  {
+    "timestamp": "2017-12-08T19:02:23.000049",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Berry> right but you could imagine something like `[a b c ^{:argc 2} str]` as way to tell the compiler to take 2 args from the stack when applying str to it."
+  },
+  {
+    "timestamp": "2017-12-08T19:03:13.000070",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "(f-> a b c (mod 2 str)), where mod :: int -> func -> func , specifies how many args to take and use"
+  },
+  {
+    "timestamp": "2017-12-08T19:03:40.000183",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "oh nice. i like that."
+  },
+  {
+    "timestamp": "2017-12-08T19:03:40.000215",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "except instead of calling it mod, we should call it m! or something"
+  },
+  {
+    "timestamp": "2017-12-08T19:05:23.000150",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "heh, i sometimes wish clojure had that in core. when mapping over a list of lists (for example) i often want something that takes a number `n` and function `f` and pulls `n` many arguments from each list and applies them to the `f` rather than writing the function that unpacks the arguments by hand. it’s easy to write but i sometimes i wish i didn’t have to. :slightly_smiling_face:"
+  },
+  {
+    "timestamp": "2017-12-08T19:08:20.000144",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Berry> `ap` might be a nice shorthand there. `[a b c str 2 ap]`"
+  },
+  {
+    "timestamp": "2017-12-08T19:21:32.000174",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "<@Deandrea>: how does 'str know to delay evaluation?"
+  },
+  {
+    "timestamp": "2017-12-08T19:22:16.000045",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "i'm assuming nothing but `ap` applies anything"
+  },
+  {
+    "timestamp": "2017-12-08T19:23:50.000094",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "the model I had in mind was: if you get a constant, you push it, if you get a function, you eval it"
+  },
+  {
+    "timestamp": "2017-12-08T19:24:01.000079",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "but in this model, it appears to be \"push until you hit ap\" ?"
+  },
+  {
+    "timestamp": "2017-12-08T19:24:09.000058",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "how would you do HOF then?"
+  },
+  {
+    "timestamp": "2017-12-08T19:24:29.000030",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "can you give me a concrete example you have in mind ?"
+  },
+  {
+    "timestamp": "2017-12-08T19:24:41.000063",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "write `(map inc [1 2 3])`"
+  },
+  {
+    "timestamp": "2017-12-08T19:24:59.000026",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "is [1 2 3] a single arg on the stack, or is it a stack of 3 items ?"
+  },
+  {
+    "timestamp": "2017-12-08T19:25:09.000139",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "that's clojure"
+  },
+  {
+    "timestamp": "2017-12-08T19:25:15.000258",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "write that in your stack based dialect"
+  },
+  {
+    "timestamp": "2017-12-08T19:25:49.000014",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "if your semantics are \"if the top element in my stack is a function, apply it\", then you have no way of using a function as a value"
+  },
+  {
+    "timestamp": "2017-12-08T19:26:44.000033",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "I was going to do all function combinators in clojure"
+  },
+  {
+    "timestamp": "2017-12-08T19:27:09.000176",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "the model I had in mind for `f->` is: 1. f-> gets a list of args 2. eval each arg 3. if arg is a constant, change it to a push 4. if it's a function, apply it"
+  },
+  {
+    "timestamp": "2017-12-08T19:27:47.000072",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "well good luck, keywords symbols vectors maps sets are functions too"
+  },
+  {
+    "timestamp": "2017-12-08T19:27:59.000202",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "F---"
+  },
+  {
+    "timestamp": "2017-12-08T19:39:30.000039",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "@qqq let me get back to you. :wink: I've gotta play with my kids right now. I will be back to meditate on this some more. :smile:"
+  }
+]
