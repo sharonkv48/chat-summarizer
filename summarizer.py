@@ -10,6 +10,7 @@ from langchain_community.llms import HuggingFacePipeline
 from transformers import pipeline, AutoTokenizer
 import os
 from dotenv import load_dotenv
+import json 
 
 load_dotenv()
 hf_token = os.getenv("HUGGINGFACEHUB_API_TOKEN")
