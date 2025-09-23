@@ -2,7 +2,7 @@ from datetime import datetime
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 from langchain_community.llms import HuggingFacePipeline
-from transformers import pipeline
+from transformers import pipeline, AutoTokenizer
 import os
 from dotenv import load_dotenv
 
@@ -53,9 +53,8 @@ summary_chain = LLMChain(llm=summarizer_llm, prompt=summary_template)
 action_chain = LLMChain(llm=action_llm, prompt=action_template)
 
 # =========================================================================================
-
 def preprocess_chats(chats):
-    print(" Preprocessing chats...")
+    print("Preprocessing chats...")
     cleaned = []
     for c in chats:
         if c.get("message") and c['message'].strip():
@@ -72,31 +71,69 @@ def preprocess_chats(chats):
     print(f"Preprocessed {len(cleaned)} messages")
     return cleaned
 
+# Token-based chunking
+MAX_TOKENS = 512  # model max tokens
+tokenizer = AutoTokenizer.from_pretrained("philschmid/bart-large-cnn-samsum")
+
+def chunk_text_by_tokens(text, max_tokens=MAX_TOKENS):
+    tokens = tokenizer.encode(text, add_special_tokens=False)
+    chunks = []
+    for i in range(0, len(tokens), max_tokens):
+        chunk_tokens = tokens[i:i+max_tokens]
+        chunk_text = tokenizer.decode(chunk_tokens)
+        chunks.append(chunk_text)
+    return chunks
+
+# ======================================================================
+# ======================================================================
+
 def run_pipeline(chats):
     print("Building conversation text...")
     conversation_text = "\n".join([f"{c['user']}: {c['message']}" for c in chats])
-    print("Conversation:\n", conversation_text)
+    print(f"Total characters in conversation: {len(conversation_text)}")
 
-    print("\n🚀 Running summarization...")
-    summary = summary_chain.run(conversation=conversation_text)
-    print("Summary generated")
+    # split into token-based chunks
+    chunks = chunk_text_by_tokens(conversation_text)
+    print(f"Split conversation into {len(chunks)} chunks")
 
-    print("\n🚀 Extracting action items...")
-    actions = action_chain.run(conversation=conversation_text)
-    print("Actions extracted")
+    summaries = []
+    actions_list = []
 
-    return summary, actions
+    for i, chunk in enumerate(chunks, 1):
+        print(f"\n🚀 Processing chunk {i}/{len(chunks)}...")
+
+        # summarization
+        summary = summary_chain.invoke({"conversation": chunk})
+        summaries.append(summary)
+
+        # action extraction
+        actions = action_chain.invoke({"conversation": chunk})
+        actions_list.append(actions)
+
+    # Combine all chunk results
+    final_summary = " ".join(summaries)
+    final_actions = " ".join(actions_list)
+
+    return final_summary, final_actions
+
+# ======================================================================
+# ======================================================================
+
+def load_chats_from_json(file_path):
+    print(f"Loading chats from {file_path} ...")
+    with open(file_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    print(f"Loaded {len(data)} chat entries")
+    return data
 
 # =============================================================================================
 
-sample_chats = [
-    {"timestamp": "2025-09-22T09:00:00", "user": "Alice", "message": "We need to finalize the budget report by Friday."},
-    {"timestamp": "2025-09-22T09:10:00", "user": "Bob", "message": "I'll collect the sales data by Thursday."},
-    {"timestamp": "2025-09-22T09:15:00", "user": "Alice", "message": "Also, schedule the team meeting for next week."}
-]
+json_file = "sample_data/combined_2000_messages.json"
 
-cleaned = preprocess_chats(sample_chats)
-summary, actions = run_pipeline(cleaned)
+chats = load_chats_from_json(json_file)
+cleaned_chats = preprocess_chats(chats)
+summary, actions = run_pipeline(cleaned_chats)
 
 print("\nFinal Summary:\n", summary)
 print("\nFinal Action Items:\n", actions)
+
