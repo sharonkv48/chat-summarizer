@@ -1,0 +1,1454 @@
+[
+  {
+    "timestamp": "2017-12-08T16:50:25.000382",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "I was actually never sure if `(merge nil {:a 1})` working was reliably supported behavior"
+  },
+  {
+    "timestamp": "2017-12-08T16:50:31.000179",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "The doc string does not indicate that it should work"
+  },
+  {
+    "timestamp": "2017-12-08T16:50:47.000424",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "It is fairly annoying to not utilize it though at times"
+  },
+  {
+    "timestamp": "2017-12-08T16:51:07.000280",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "``` clojure.core/merge ([& maps]) Returns a map that consists of the rest of the maps conj-ed onto the first. If a key occurs in more than one map, the mapping from the latter (left-to-right) will be the mapping in the result. ```"
+  },
+  {
+    "timestamp": "2017-12-08T16:52:17.000054",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "that description seems to imply it shouldn't in fact"
+  },
+  {
+    "timestamp": "2017-12-08T16:52:26.000110",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "because ``` (conj nil {:a 1}) => ({:a 1}) (merge nil {:a 1}) => {:a 1} ```"
+  },
+  {
+    "timestamp": "2017-12-08T16:52:55.000469",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "it is supported, but yeah it makes somethings difficult"
+  },
+  {
+    "timestamp": "2017-12-08T16:52:58.000218",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "<@Aldo> good point"
+  },
+  {
+    "timestamp": "2017-12-08T16:53:23.000189",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "merge uses conj internally, but protects against nil"
+  },
+  {
+    "timestamp": "2017-12-08T16:53:31.000464",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "Just because a fn happens to do some behavior with nil now, doesn’t give me a lot of confidence that I’m not relying on an impl detail"
+  },
+  {
+    "timestamp": "2017-12-08T16:53:47.000240",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "I wish it’d be in the docs for these sorts of edge cases"
+  },
+  {
+    "timestamp": "2017-12-08T16:54:29.000116",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "There are plenty of cases like this though. The `merge` one is just one I’ve wrestled with in my head a few times."
+  },
+  {
+    "timestamp": "2017-12-08T16:54:56.000219",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "Also, I’m thinking it’d be a pretty harsh change to have `merge` stop supporting this behavior - so not likely to change anymore :stuck_out_tongue:"
+  },
+  {
+    "timestamp": "2017-12-08T16:54:58.000326",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "core specs will help with this, can almost guarantee it won't go in the docstring"
+  },
+  {
+    "timestamp": "2017-12-08T16:55:34.000252",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "merge supports a couple other surprises, see the last comment in <https://dev.clojure.org/jira/browse/CLJ-1458>"
+  },
+  {
+    "timestamp": "2017-12-08T16:56:08.000215",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "I feel like if a spec is added to merge that says (s/nilable m) then a subsequent docstring PR that clarified what happened in the case of nil would prob be accepted"
+  },
+  {
+    "timestamp": "2017-12-08T16:57:05.000269",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "<@Guillermo> good point on the core.specs. I just took a look over at that (haven’t looked in a while). It still has a lot more functions to cover still right? At least from what I see so far."
+  },
+  {
+    "timestamp": "2017-12-08T16:58:17.000152",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "It's mostly the main macros right now, <@Sonny> has more stuff pending somewhere, and there are a couple of github users that have their own specs of core"
+  },
+  {
+    "timestamp": "2017-12-08T16:58:31.000276",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "ah ok"
+  },
+  {
+    "timestamp": "2017-12-08T16:59:22.000149",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "generally clojure docstrings don't comprehensively specify edge-cases, but <http://clojuredocs.org|clojuredocs.org> or whatever the thing-du-jour is certainly can"
+  },
+  {
+    "timestamp": "2017-12-08T17:00:35.000234",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "\"Someone should\" add an API to third-party clojuredocs and integrate them with tooling"
+  },
+  {
+    "timestamp": "2017-12-08T17:01:28.000348",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "I’m typically ok with that idea"
+  },
+  {
+    "timestamp": "2017-12-08T17:02:18.000203",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "Then other times I have a hard time deciding whether I’m relying on an odd impl detail or not"
+  },
+  {
+    "timestamp": "2017-12-08T17:02:22.000389",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "hah :stuck_out_tongue:"
+  },
+  {
+    "timestamp": "2017-12-08T17:02:45.000016",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "Interesting Jira though, read through the CLJ-1458 one"
+  },
+  {
+    "timestamp": "2017-12-08T17:05:39.000281",
+    "conversation_id": 1674,
+    "user": "Micha",
+    "message": "The stricter interpretation you take of the doc strings, the less likely you are to be relying on an odd impl detail."
+  },
+  {
+    "timestamp": "2017-12-08T17:06:53.000469",
+    "conversation_id": 1674,
+    "user": "Micha",
+    "message": "I know that is still pretty vague advice, but at least in the case of merge, if you never pass it nil, you are safe. If you do, maybe it could return anything at all or raise an exception in Clojure 1.13"
+  },
+  {
+    "timestamp": "2017-12-08T17:07:40.000093",
+    "conversation_id": 1674,
+    "user": "Micha",
+    "message": "Not saying it is likely, given the backwards compatibility effort Rich et al put into Clojure."
+  },
+  {
+    "timestamp": "2017-12-08T17:07:56.000174",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "<@Micha> yeah, and I’ve found myself a few times being defensive about it out of that sort of worry ``` (update x merge {:a 1}) ; not this (update x (fnil merge {}) {:a 1}) ; this ```"
+  },
+  {
+    "timestamp": "2017-12-08T17:07:58.000089",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "that sort of thing"
+  },
+  {
+    "timestamp": "2017-12-08T17:08:16.000257",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "I then just start to wonder if it is worth the nil-guarding efforts"
+  },
+  {
+    "timestamp": "2017-12-08T17:08:25.000140",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "and (generally) the more the docstring promises, the narrower a future path might be"
+  },
+  {
+    "timestamp": "2017-12-08T17:09:07.000356",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "the trade-off, make more verbose code to not rely on things vs hope for the best, but be prepared for potentially more difficult upgrades in the future"
+  },
+  {
+    "timestamp": "2017-12-08T17:09:29.000230",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "and perhaps watch the Jiras carefully and fight for whatever obscure use-case you see that someone is about to break :stuck_out_tongue:"
+  },
+  {
+    "timestamp": "2017-12-08T17:09:49.000121",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "I’m not saying what is right vs wrong here. Just explaining my internal conflict and struggle"
+  },
+  {
+    "timestamp": "2017-12-08T17:10:02.000188",
+    "conversation_id": 1674,
+    "user": "Margaret",
+    "message": "<@Petronila> total aside: that update could just use assoc ```=> (assoc nil :a 0) {:a 0}```"
+  },
+  {
+    "timestamp": "2017-12-08T17:10:17.000487",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "<@Margaret> hah thanks, I didn’t intend to make something realistic"
+  },
+  {
+    "timestamp": "2017-12-08T17:10:27.000107",
+    "conversation_id": 1674,
+    "user": "Margaret",
+    "message": "that’s what makes it an aside haha"
+  },
+  {
+    "timestamp": "2017-12-08T17:10:27.000330",
+    "conversation_id": 1674,
+    "user": "Petronila",
+    "message": "wasn’t a great example :stuck_out_tongue:"
+  },
+  {
+    "timestamp": "2017-12-08T17:10:33.000115",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "(and `nil` in merge is only problematic in the first argument)"
+  },
+  {
+    "timestamp": "2017-12-08T17:10:58.000193",
+    "conversation_id": 1674,
+    "user": "Margaret",
+    "message": "oooh `(fnil merge {} {})` is also valid though"
+  },
+  {
+    "timestamp": "2017-12-08T17:11:47.000473",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "What is a spec for `merge`?"
+  },
+  {
+    "timestamp": "2017-12-08T17:12:01.000293",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "at least the :args part"
+  },
+  {
+    "timestamp": "2017-12-08T17:12:18.000006",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "and ignoring the GIGO cases"
+  },
+  {
+    "timestamp": "2017-12-08T17:12:56.000062",
+    "conversation_id": 1674,
+    "user": "Margaret",
+    "message": "it’s one of my pet clojure style issues, I just had to say something, I compulsively replace calls to merge that use a map literal as a second arg with calls to assoc (or instruct co-workers to do so when doing code reviews)"
+  },
+  {
+    "timestamp": "2017-12-08T17:18:44.000155",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "seems like `if-not` could just ditch the expansion with `not` i.e. ``` (defmacro if-not ([test then] `(if ~test nil ~then)) ([test then else] `(if ~test ~else ~then)))```"
+  },
+  {
+    "timestamp": "2017-12-08T17:19:09.000275",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "right, it’s just `if` with the args flipped."
+  },
+  {
+    "timestamp": "2017-12-08T17:19:23.000096",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "minor thing."
+  },
+  {
+    "timestamp": "2017-12-08T17:22:14.000461",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "nope, that's the GIGO"
+  },
+  {
+    "timestamp": "2017-12-08T17:22:36.000495",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "garbage in garbage out"
+  },
+  {
+    "timestamp": "2017-12-08T17:22:41.000172",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "ah, I thought you were speccing the current behaviour :)"
+  },
+  {
+    "timestamp": "2017-12-08T17:23:09.000223",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "GIGO is such a punitive perspective."
+  },
+  {
+    "timestamp": "2017-12-08T17:23:42.000299",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "Ah, you are right <@Kareen>"
+  },
+  {
+    "timestamp": "2017-12-08T17:24:48.000253",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "i am definitely wrong, it's 530PM EST on friday."
+  },
+  {
+    "timestamp": "2017-12-08T17:25:21.000095",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "TIL `(merge)` works"
+  },
+  {
+    "timestamp": "2017-12-08T17:25:33.000247",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "(I think I confused myself with the metadata propagation, which only happens when the first arg is not nil)"
+  },
+  {
+    "timestamp": "2017-12-08T17:26:05.000501",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "But `:m0` should be `(s/nilable (s/keys))`"
+  },
+  {
+    "timestamp": "2017-12-08T17:26:12.000107",
+    "conversation_id": 1674,
+    "user": "Margaret",
+    "message": "<@Kareen> the best parge is that `(merge)` returns nil"
+  },
+  {
+    "timestamp": "2017-12-08T17:26:18.000231",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "haha yes ^"
+  },
+  {
+    "timestamp": "2017-12-08T17:26:31.000456",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "I have a feeling that part is definitely gigo"
+  },
+  {
+    "timestamp": "2017-12-08T17:26:32.000277",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "it is a strange implementation"
+  },
+  {
+    "timestamp": "2017-12-08T17:26:45.000391",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "the `some identity` check at the beginning"
+  },
+  {
+    "timestamp": "2017-12-08T17:26:47.000259",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "and it's not really supposed to work"
+  },
+  {
+    "timestamp": "2017-12-08T17:27:28.000168",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "i’ve always found it punitive."
+  },
+  {
+    "timestamp": "2017-12-08T17:27:59.000255",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "there's nothing particularly attractive about it, it's just reality in a dynamic langauge. spec is moving us towards Garbage In EXCEPTION"
+  },
+  {
+    "timestamp": "2017-12-08T17:28:09.000449",
+    "conversation_id": 1674,
+    "user": "Margaret",
+    "message": "<@Kareen> merge -> (merge nil nil nil nil) get -> (get get get get)"
+  },
+  {
+    "timestamp": "2017-12-08T17:28:13.000394",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "it can be <@Deandrea>... I think spec will _really_ help with that."
+  },
+  {
+    "timestamp": "2017-12-08T17:28:35.000244",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "``` user=> (merge [] {}) [{}] ```"
+  },
+  {
+    "timestamp": "2017-12-08T17:28:46.000157",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "no matter how many times I see that get over the years it always makes me chuckle"
+  },
+  {
+    "timestamp": "2017-12-08T17:29:07.000161",
+    "conversation_id": 1674,
+    "user": "Margaret",
+    "message": "it’s probably one of my greatest discoveries"
+  },
+  {
+    "timestamp": "2017-12-08T17:29:17.000254",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "one of many"
+  },
+  {
+    "timestamp": "2017-12-08T17:29:47.000351",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Guillermo> yes, that is one thing i find attractive about it (spec)."
+  },
+  {
+    "timestamp": "2017-12-08T17:29:55.000292",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "somebody should work on a dialect of swearjure that only uses weird stuff like this"
+  },
+  {
+    "timestamp": "2017-12-08T17:30:13.000345",
+    "conversation_id": 1674,
+    "user": "Margaret",
+    "message": "for those who are unfamiliar ```=> (= get ((get get get get) {get get} get)) true```"
+  },
+  {
+    "timestamp": "2017-12-08T17:31:59.000310",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "well, how would you prevent gigo in clojure? spec! what happens if you don't do something like that? gigo! ie, gigo is just the default case in a dynamic language where data is passed around in structures with uniform interfaces"
+  },
+  {
+    "timestamp": "2017-12-08T17:32:49.000359",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Aldo> that may be true from some cases but that has more to do with the programmer who wrote the source. it’s not inherently a problem in dynamic languages."
+  },
+  {
+    "timestamp": "2017-12-08T17:33:15.000008",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "another option would be to sanity check all inputs manually. I'm glad no one took the time to do that seeing as spec exists now and that code would just be noise"
+  },
+  {
+    "timestamp": "2017-12-08T17:33:58.000247",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Aldo> i disagree. `:pre` and `:post` checks, which i use heavily, are useful."
+  },
+  {
+    "timestamp": "2017-12-08T17:34:09.000355",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "but they're super noisy"
+  },
+  {
+    "timestamp": "2017-12-08T17:34:15.000073",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "and slow"
+  },
+  {
+    "timestamp": "2017-12-08T17:34:19.000149",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "for development."
+  },
+  {
+    "timestamp": "2017-12-08T17:34:41.000440",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "and only when `*check-asserts*` is true. instrumentation with spec is extremely slow as well."
+  },
+  {
+    "timestamp": "2017-12-08T17:34:53.000373",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "they're certainly useful. but they're noisy, and quite a lot of work. I think spec is a much more elegant solution because it gives you some sort of structural documentation and errors as well as validation"
+  },
+  {
+    "timestamp": "2017-12-08T17:35:46.000146",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "if someone had gone through core and :pre'd every function then the current work of going through core and spec'ing every function would feel a bit redundant"
+  },
+  {
+    "timestamp": "2017-12-08T17:35:53.000042",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "so basically, the argument in favor of GIGO is “i don’t want to write the sanity checks for my code because it’s noisy”?"
+  },
+  {
+    "timestamp": "2017-12-08T17:36:00.000287",
+    "conversation_id": 1674,
+    "user": "Charity",
+    "message": "pretty much"
+  },
+  {
+    "timestamp": "2017-12-08T17:36:18.000311",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "\"I don't want to write the sanity checks because it's noisy and I have more important things to write\""
+  },
+  {
+    "timestamp": "2017-12-08T17:36:23.000137",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "that seems like a weak argument against clearly expressing your domain, range, semantics, etc."
+  },
+  {
+    "timestamp": "2017-12-08T17:36:32.000383",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "and that's why spec has been created?"
+  },
+  {
+    "timestamp": "2017-12-08T17:36:37.000267",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "yes."
+  },
+  {
+    "timestamp": "2017-12-08T17:36:40.000363",
+    "conversation_id": 1674,
+    "user": "Guillermo",
+    "message": "Leverage"
+  },
+  {
+    "timestamp": "2017-12-08T17:36:44.000335",
+    "conversation_id": 1674,
+    "user": "Margaret",
+    "message": "not just that - overly strict preconditions can make later extensions tedious or incompatible"
+  },
+  {
+    "timestamp": "2017-12-08T17:37:09.000121",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Margaret> i can see that, although, i’ve never come up against that in practice."
+  },
+  {
+    "timestamp": "2017-12-08T17:37:58.000132",
+    "conversation_id": 1674,
+    "user": "Margaret",
+    "message": "<@Deandrea> simple example - imagine whitelisting the allowed keys in a hash-map - you now need to rewrite your code as soon as code around it is extended, even though it shouldn’t have to care"
+  },
+  {
+    "timestamp": "2017-12-08T17:38:12.000390",
+    "conversation_id": 1674,
+    "user": "Margaret",
+    "message": "other cases are more subtle but often just as tedious"
+  },
+  {
+    "timestamp": "2017-12-08T17:38:19.000115",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Aldo> i’ve seen that attitude fail catastrophically though, enough so that `:post (some? %)` has saved me hours of debugging."
+  },
+  {
+    "timestamp": "2017-12-08T17:39:38.000412",
+    "conversation_id": 1674,
+    "user": "Margaret",
+    "message": "you can get future proof code without a bunch of complex incantations by failing to validate, once you validate future proofing is more work, and adds complexity in which bugs can hide"
+  },
+  {
+    "timestamp": "2017-12-08T17:39:56.000075",
+    "conversation_id": 1674,
+    "user": "Margaret",
+    "message": "(unless the validating comes from the outside, eg. spec)"
+  },
+  {
+    "timestamp": "2017-12-08T17:40:12.000172",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "I don't think anyone disagrees that some validation can be very useful. which is presumably why schema became so popular and why spec was created. I personally think on balance :pre and :post don't give enough extra value to go along with the validation to make them worth it the vast majority of the time. schema gave a bit more value and now spec gives even more to help tip the scales towards making it worth doing"
+  },
+  {
+    "timestamp": "2017-12-08T17:40:17.000253",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Margaret> i suppose my argument there would that, to your point, the constraint is too tight. spec doesn’t alleviate you from that either."
+  },
+  {
+    "timestamp": "2017-12-08T17:40:49.000211",
+    "conversation_id": 1674,
+    "user": "Charity",
+    "message": "if only there were technologies for late-parameterizing specifications with additional requirements"
+  },
+  {
+    "timestamp": "2017-12-08T17:41:19.000174",
+    "conversation_id": 1674,
+    "user": "Margaret",
+    "message": "<https://i.imgflip.com/20r5et.jpg>"
+  },
+  {
+    "timestamp": "2017-12-08T17:41:24.000399",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": ":joy:"
+  },
+  {
+    "timestamp": "2017-12-08T17:41:30.000171",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "lol"
+  },
+  {
+    "timestamp": "2017-12-08T17:41:37.000239",
+    "conversation_id": 1674,
+    "user": "Charity",
+    "message": ">.>"
+  },
+  {
+    "timestamp": "2017-12-08T17:42:29.000223",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "so GIGO is not salient when constraints are and vice-versa?"
+  },
+  {
+    "timestamp": "2017-12-08T17:42:36.000232",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "I don't understand what we're arguing about, clojure had a GIGO problem and now we have spec to avoid that"
+  },
+  {
+    "timestamp": "2017-12-08T17:42:37.000432",
+    "conversation_id": 1674,
+    "user": "Micha",
+    "message": "I thought GIGO in Clojure was purely motivated by run-time efficiency ?"
+  },
+  {
+    "timestamp": "2017-12-08T17:43:05.000409",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "I wouldn't say purely but that's the biggest reason"
+  },
+  {
+    "timestamp": "2017-12-08T17:43:07.000369",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Kareen> i was simply trying to understand the attraction to the GIGO rationale."
+  },
+  {
+    "timestamp": "2017-12-08T17:43:16.000272",
+    "conversation_id": 1674,
+    "user": "Micha",
+    "message": "And have any core Clojure developers ever called it GIGO, or is that something originated by others?"
+  },
+  {
+    "timestamp": "2017-12-08T17:43:19.000265",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "GIGO isn't a philosophy or a rationale, it's just a statement. if you pass nonsense in that there's no validation checks around you can expect to get nonsense out"
+  },
+  {
+    "timestamp": "2017-12-08T17:43:38.000215",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "<@Micha> I'm sure I've seen alex call it GIGO more than once :)"
+  },
+  {
+    "timestamp": "2017-12-08T17:43:56.000143",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "i’ve seen that too."
+  },
+  {
+    "timestamp": "2017-12-08T17:44:15.000057",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Aldo> in some cases it is a rationale."
+  },
+  {
+    "timestamp": "2017-12-08T17:44:25.000233",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "I would like to see one of those cases"
+  },
+  {
+    "timestamp": "2017-12-08T17:44:33.000260",
+    "conversation_id": 1674,
+    "user": "Margaret",
+    "message": "while GIGO is just a fact, there’s a rationale to prefering code with GIGO behavior over defensive code - which does describe clojure code before spec"
+  },
+  {
+    "timestamp": "2017-12-08T17:45:17.000287",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "yeah but that preference is because of \"performance\" or \"cleaner code\" or \"whatever\". it's not like anyone is specifically trying to write code to silently fail"
+  },
+  {
+    "timestamp": "2017-12-08T17:45:42.000231",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Aldo> <https://clojurians.slack.com/archives/C03S1KBA2/p1512771734000461>"
+  },
+  {
+    "timestamp": "2017-12-08T17:46:03.000415",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "meh, you make it sound like most GIGO in clojure was a *design decision* when in reality it is just lack of validation to avoid: - runtime performance costs - having to manually write explicit checks for everything"
+  },
+  {
+    "timestamp": "2017-12-08T17:46:13.000437",
+    "conversation_id": 1674,
+    "user": "Micha",
+    "message": "<@Aldo> If you mean an example of GIGO being a rationale to avoid adding run-time type checks, the clojure.set operators are the biggest example in my mind, e.g. <https://dev.clojure.org/jira/browse/CLJ-1953>"
+  },
+  {
+    "timestamp": "2017-12-08T17:46:21.000285",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "<@Deandrea> ghadi isn't a core developer"
+  },
+  {
+    "timestamp": "2017-12-08T17:46:39.000299",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Kareen> what does that have to do with the discussion?"
+  },
+  {
+    "timestamp": "2017-12-08T17:46:50.000089",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "that's what andy asked"
+  },
+  {
+    "timestamp": "2017-12-08T17:46:59.000442",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "they're using \"gigo\" to describe \"that's a case where the function does something unintended because you passed in something unintended\". I don't see anyone saying \"it should be that way cuz gigo\""
+  },
+  {
+    "timestamp": "2017-12-08T17:47:01.000099",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "i was merely interested in why GIGO is floated as an answer ever."
+  },
+  {
+    "timestamp": "2017-12-08T17:47:33.000023",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "because it's a succinct and accurate one?"
+  },
+  {
+    "timestamp": "2017-12-08T17:47:34.000179",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "look, s/GIGO/undefined behaviour/"
+  },
+  {
+    "timestamp": "2017-12-08T17:47:55.000147",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "gigo is just shorter to type"
+  },
+  {
+    "timestamp": "2017-12-08T17:48:13.000124",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Kareen> ah, okay."
+  },
+  {
+    "timestamp": "2017-12-08T17:48:23.000131",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Aldo> accurate?"
+  },
+  {
+    "timestamp": "2017-12-08T17:48:34.000156",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": ":joy:"
+  },
+  {
+    "timestamp": "2017-12-08T17:48:39.000230",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "<@Micha> no one is saying they're not validating clojure.set \"because gigo\". If you were to specifically ask my guess would be \"because performance and can't be bothered\""
+  },
+  {
+    "timestamp": "2017-12-08T17:49:00.000235",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Aldo> i’m pretty sure that’s been floated as a rationale in that discussion."
+  },
+  {
+    "timestamp": "2017-12-08T17:49:21.000242",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "no"
+  },
+  {
+    "timestamp": "2017-12-08T17:49:37.000374",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "core members have said in multiple forums that spec will \"solve\" the gigo issues of clojure.set"
+  },
+  {
+    "timestamp": "2017-12-08T17:49:46.000166",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "so clearly gigo is not a rationale"
+  },
+  {
+    "timestamp": "2017-12-08T17:49:54.000232",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "in one of the linked tickets \"Now that `set` is faster for sets, I think we could actually add checking for sets in some places where we might not have before. \""
+  },
+  {
+    "timestamp": "2017-12-08T17:50:05.000401",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "or that ^"
+  },
+  {
+    "timestamp": "2017-12-08T17:50:11.000408",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "so the previous reason was performance. and the current reason is \"better things to do so far\""
+  },
+  {
+    "timestamp": "2017-12-08T17:50:35.000227",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "also, lucky they did those better things, because they made spec! and now that validation is trivially added in a uniform way rather than ad-hoc"
+  },
+  {
+    "timestamp": "2017-12-08T17:53:44.000027",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Kareen> my line of question was in general not with respect to only core members."
+  },
+  {
+    "timestamp": "2017-12-08T17:54:18.000346",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "it’s was more of “i’ve seen this GIGO thing be used as a rationale in the context of the clojure community and i’m curious what motivates it.”"
+  },
+  {
+    "timestamp": "2017-12-08T17:54:41.000169",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "right, I was assuming we were specifically talking about core"
+  },
+  {
+    "timestamp": "2017-12-08T17:55:40.000292",
+    "conversation_id": 1674,
+    "user": "Micha",
+    "message": "<@Deandrea> The community cannot change clojure.core without the approval of one person. If someone else gives a rationale for what changes in clojure.core, or does not change in clojure.core, it is based on their interpretation/guesstimate of the reasons."
+  },
+  {
+    "timestamp": "2017-12-08T17:57:44.000253",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "there you go :)"
+  },
+  {
+    "timestamp": "2017-12-08T17:57:52.000244",
+    "conversation_id": 1674,
+    "user": "Micha",
+    "message": "My interpretation is that \"can't be bothered to add the checks\" seems unlikely for things like clojure.set functions, since many people would have been happy to provide patches for those years ago if they were desired by the core developer team. spec being a far more general tool is fantastic, and I'm glad it was created."
+  },
+  {
+    "timestamp": "2017-12-08T17:57:59.000059",
+    "conversation_id": 1674,
+    "user": "Sonny",
+    "message": "that’d be like, useful"
+  },
+  {
+    "timestamp": "2017-12-08T17:58:10.000329",
+    "conversation_id": 1674,
+    "user": "Sonny",
+    "message": "you don’t even have to wait for them to be in core to use them"
+  },
+  {
+    "timestamp": "2017-12-08T17:58:16.000345",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Micha> i understand that, however, my question was more broad in scope. i’m not calling out clojure core, the libraries, or the members. it was a question for the room in the context of the community purely because i’ve seen it be a rationale for doing something not bound by the performance reason."
+  },
+  {
+    "timestamp": "2017-12-08T17:58:20.000034",
+    "conversation_id": 1674,
+    "user": "Sonny",
+    "message": "just put ’em in a namespace and load them"
+  },
+  {
+    "timestamp": "2017-12-08T17:59:13.000132",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "the typing thing, well, that’s effectively a fallacy (in my opinion)."
+  },
+  {
+    "timestamp": "2017-12-08T17:59:45.000272",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "to say “i won’t do _x_ because typing” can be a fine argument in certain situations but in general it’s very weak."
+  },
+  {
+    "timestamp": "2017-12-08T18:00:59.000054",
+    "conversation_id": 1674,
+    "user": "Aldo",
+    "message": "the point was simply that you see that kind of beahaviour less in typed languages (at an unacceptable cost). again. not a rationale. a statement"
+  },
+  {
+    "timestamp": "2017-12-08T18:01:00.000243",
+    "conversation_id": 1674,
+    "user": "Sonny",
+    "message": "in my experience, writing specs for core stuff can bring out many subtle questions. going through those and teasing apart what is expected, what works but is unexpected, and what doesn’t work now but we might want to work in the future has some measure of art to it."
+  },
+  {
+    "timestamp": "2017-12-08T18:01:04.000223",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "the way i read that argument is “my program won’t/will have this set of properties because (not) typing”."
+  },
+  {
+    "timestamp": "2017-12-08T18:01:48.000346",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "I don't understand what \"typing\" you mean here :) the fingers on a keyboard one or the holy war one"
+  },
+  {
+    "timestamp": "2017-12-08T18:02:07.000066",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Kareen> fingers on the board."
+  },
+  {
+    "timestamp": "2017-12-08T18:02:56.000163",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "i don’t believe in arguing about static vs dynamic typing. it’s a pointless endeavor. folks should be open to good ideas period and stop obsessing about typing discipline."
+  },
+  {
+    "timestamp": "2017-12-08T18:03:01.000395",
+    "conversation_id": 1674,
+    "user": "Johana",
+    "message": "congrats on clojure 1.9.0!"
+  },
+  {
+    "timestamp": "2017-12-08T18:03:34.000081",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "i’m actually filled with a bit of dread now because it means i have to finish garden 2.0.0. :joy:"
+  },
+  {
+    "timestamp": "2017-12-08T18:03:43.000087",
+    "conversation_id": 1674,
+    "user": "Sonny",
+    "message": "I’m celebrating with some Templeton Rye 6 year myself :)"
+  },
+  {
+    "timestamp": "2017-12-08T18:05:13.000072",
+    "conversation_id": 1674,
+    "user": "Johana",
+    "message": "I celebrated by upgrading our dev branch and pushed to staging"
+  },
+  {
+    "timestamp": "2017-12-08T18:05:37.000341",
+    "conversation_id": 1674,
+    "user": "Sonny",
+    "message": "I have some scotch that would qualify, but I keep coming back to this Templeton lately"
+  },
+  {
+    "timestamp": "2017-12-08T18:06:07.000022",
+    "conversation_id": 1674,
+    "user": "Charity",
+    "message": "3pm PST, I’m in for 1.9.0 scotch :smile:"
+  },
+  {
+    "timestamp": "2017-12-08T18:06:42.000214",
+    "conversation_id": 1674,
+    "user": "Micha",
+    "message": "\"Ahhh, the 1.9.0 --- that was a good version for Scotch...\""
+  },
+  {
+    "timestamp": "2017-12-08T18:06:48.000217",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "ahaha"
+  },
+  {
+    "timestamp": "2017-12-08T18:07:31.000092",
+    "conversation_id": 1674,
+    "user": "Sonny",
+    "message": "it’s like they were all drunk or something"
+  },
+  {
+    "timestamp": "2017-12-08T18:07:53.000037",
+    "conversation_id": 1674,
+    "user": "Sonny",
+    "message": "on to Clojure 1.10 :)"
+  },
+  {
+    "timestamp": "2017-12-08T18:08:21.000317",
+    "conversation_id": 1674,
+    "user": "Sonny",
+    "message": "well the last few weeks has mostly been me rewriting the docs over and over at Rich’s direction :)"
+  },
+  {
+    "timestamp": "2017-12-08T18:08:43.000335",
+    "conversation_id": 1674,
+    "user": "Micha",
+    "message": "Gotta make sure the docs don't over-promise :slightly_smiling_face:"
+  },
+  {
+    "timestamp": "2017-12-08T18:08:46.000037",
+    "conversation_id": 1674,
+    "user": "Sonny",
+    "message": "but also giving it some soak time in case anything came up"
+  },
+  {
+    "timestamp": "2017-12-08T18:08:56.000173",
+    "conversation_id": 1674,
+    "user": "Micha",
+    "message": "Sorry, I couldn't resist. Bad me["
+  },
+  {
+    "timestamp": "2017-12-08T18:09:05.000330",
+    "conversation_id": 1674,
+    "user": "Sonny",
+    "message": "no, that’s true :)"
+  },
+  {
+    "timestamp": "2017-12-08T18:09:33.000042",
+    "conversation_id": 1674,
+    "user": "Sonny",
+    "message": "scottish blessing I think"
+  },
+  {
+    "timestamp": "2017-12-08T18:10:15.000187",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": ":thumbsup_all: to the CLI stuff."
+  },
+  {
+    "timestamp": "2017-12-08T18:14:03.000124",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Audie> are you able to patch your test (or code) in such a way that it does not require the task to be executed asynchronously? i know that’s not answering your question, however, it’s one i would ask myself in that situation."
+  },
+  {
+    "timestamp": "2017-12-08T18:16:37.000219",
+    "conversation_id": 1674,
+    "user": "Audie",
+    "message": "<@Deandrea> I don’t see a way to do that. I have to call this async function and wait for the entire process to finish. Otherwise, when I go to the database the data is not there yet"
+  },
+  {
+    "timestamp": "2017-12-08T18:18:31.000336",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Audie> you could use a promise or a future."
+  },
+  {
+    "timestamp": "2017-12-08T18:22:57.000164",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "someone else might have a more elegant solution."
+  },
+  {
+    "timestamp": "2017-12-08T18:23:34.000077",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "sounds like that’s the place in the code you need to patch."
+  },
+  {
+    "timestamp": "2017-12-08T18:24:31.000251",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "so, yes. you need to be able to deliver to the promise when the async task completes. i’m guessing there’s probably a function or something that gets handed to whatever does the async work."
+  },
+  {
+    "timestamp": "2017-12-08T18:29:38.000098",
+    "conversation_id": 1674,
+    "user": "Audie",
+    "message": "I see.. thanks for the help! I’ll try to fix this"
+  },
+  {
+    "timestamp": "2017-12-08T18:40:30.000030",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Daniell> yes, that was a typo."
+  },
+  {
+    "timestamp": "2017-12-08T18:40:39.000156",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "thank you for catching that."
+  },
+  {
+    "timestamp": "2017-12-08T18:41:21.000211",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "<@Berry> if you use conj/peek/pop, vectors and lists behave the same as stacks"
+  },
+  {
+    "timestamp": "2017-12-08T18:41:34.000149",
+    "conversation_id": 1674,
+    "user": "Daniell",
+    "message": "<@Deandrea> I was genuinely surprised it \"worked\" -- I rarely use `:pre`/`:post` so I nearly always have to look up the syntax!"
+  },
+  {
+    "timestamp": "2017-12-08T18:41:52.000171",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "I tend to use vectors as stacks just because `pop-n` and `peek-n` are easier to implement efficiently on vectors"
+  },
+  {
+    "timestamp": "2017-12-08T18:42:01.000107",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Berry> +1 for vectors. and enjoy the concatenative journey. :slightly_smiling_face:"
+  },
+  {
+    "timestamp": "2017-12-08T18:42:07.000090",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "<@Berry> no, all those operations are constant time on both vectors and lists"
+  },
+  {
+    "timestamp": "2017-12-08T18:42:31.000019",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "<@Kareen>: I think vector is log_32 #-elemes, which is <= 5 in most caeds, but technically log n"
+  },
+  {
+    "timestamp": "2017-12-08T18:43:51.000099",
+    "conversation_id": 1674,
+    "user": "Daniell",
+    "message": "I was actually sufficiently awed by Gershwin at one point that I tried it out at work and wrote a few functions in the \"Forth\" style of Clojure! :slightly_smiling_face:"
+  },
+  {
+    "timestamp": "2017-12-08T18:44:12.000247",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "<@Berry> no that's not correct, conj/pop/peek on vectors are amortized constant time, not log_32, nth/assoc are log_32 on vectors"
+  },
+  {
+    "timestamp": "2017-12-08T18:44:16.000167",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "<@Daniell>: I've lost track the # of afternoons I've lost due to you providing fasicnating links."
+  },
+  {
+    "timestamp": "2017-12-08T18:44:31.000204",
+    "conversation_id": 1674,
+    "user": "Daniell",
+    "message": "(but since it relies on a fork of Clojure and wasn't being updated, I quickly went back to pure Clojure)"
+  },
+  {
+    "timestamp": "2017-12-08T18:45:15.000020",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "<@Kareen>: conj has to be log_32 time as it has to create a new node for every level of the b-tree"
+  },
+  {
+    "timestamp": "2017-12-08T18:45:36.000319",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "clojure's persistent vectors are not b-trees"
+  },
+  {
+    "timestamp": "2017-12-08T18:45:58.000254",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "I thought they were btrees with 32 fanout -- if not btrees, what are they?"
+  },
+  {
+    "timestamp": "2017-12-08T18:46:25.000004",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "<http://hypirion.com/musings/understanding-persistent-vector-pt-1>"
+  },
+  {
+    "timestamp": "2017-12-08T18:46:50.000266",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Berry> if you’re interested have a look at factor, joy, cat, and kitten in this space as well."
+  },
+  {
+    "timestamp": "2017-12-08T18:47:13.000243",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "factor is a ton of fun."
+  },
+  {
+    "timestamp": "2017-12-08T18:47:17.000098",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "<@Berry> in particular <http://hypirion.com/musings/understanding-persistent-vector-pt-3>"
+  },
+  {
+    "timestamp": "2017-12-08T18:47:26.000236",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "this is the optimization that makes conj amortized constant time"
+  },
+  {
+    "timestamp": "2017-12-08T18:47:55.000120",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "same for pop/peek"
+  },
+  {
+    "timestamp": "2017-12-08T18:48:31.000363",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "1. the depth of the tree is log_32 n 2. when we do a conj, we have to create a new node at each level of the tree ^-- which is the two above statements is false ? -- because if they're both true, it's log_32 n time EVERY TIME"
+  },
+  {
+    "timestamp": "2017-12-08T18:49:07.000290",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "2 is not true"
+  },
+  {
+    "timestamp": "2017-12-08T18:49:55.000250",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "``` Instead of keeping the rightmost leaf in the tree itself, we keep a direct reference to it in the vector header: That's the last block which has been added to the vector head since last blogpost. The reference to the rightmost leaf node is called the tail. ``` ah"
+  },
+  {
+    "timestamp": "2017-12-08T18:49:59.000135",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "that's clever; bronsa++"
+  },
+  {
+    "timestamp": "2017-12-08T18:50:15.000146",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "well I didn't come up with any of this"
+  },
+  {
+    "timestamp": "2017-12-08T18:50:33.000086",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "thanks for correcting me on this time, I've been thinking conj was log_32 n time"
+  },
+  {
+    "timestamp": "2017-12-08T18:50:33.000299",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": ":smile:"
+  },
+  {
+    "timestamp": "2017-12-08T18:50:49.000176",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "wrt \"what are they\", I've heard the clj vector impl called bitmapped vector trie, not sure if there's a better name"
+  },
+  {
+    "timestamp": "2017-12-08T18:52:17.000298",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "<@Daniell>: I feel like we can get most of forth in clojure by defining macro `f->`, where it behaves like `->` except 1. if it sees a constant (number, kw, string), it pushes it to the stack 2. all functionsin it take stack as input and produces stack as output"
+  },
+  {
+    "timestamp": "2017-12-08T18:57:08.000126",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Berry> the thing is though you’ll need to come up with a way to call out how much of the stack to consume for fn’s that have multiple arities."
+  },
+  {
+    "timestamp": "2017-12-08T18:57:32.000165",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "e.g. how do you interpret `[\"foo\" \"bar\" \"baz\" str]`?"
+  },
+  {
+    "timestamp": "2017-12-08T18:58:11.000004",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "<https://twitter.com/brandonbloom/status/528262785642545153> this is still my favourite impl of stack programming in clojure :)"
+  },
+  {
+    "timestamp": "2017-12-08T18:58:49.000051",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "<https://github.com/brandonbloom/factjor> for a more useful impl"
+  },
+  {
+    "timestamp": "2017-12-08T18:59:53.000016",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": ":+1:"
+  },
+  {
+    "timestamp": "2017-12-08T19:00:52.000297",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "<@Deandrea>: afaik, forth doesn't support var-arity functions, so f-> won't either"
+  },
+  {
+    "timestamp": "2017-12-08T19:01:06.000182",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "all functions passed to f-> take a single arg (the stack) as input and produces a stack as output"
+  },
+  {
+    "timestamp": "2017-12-08T19:02:23.000049",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Berry> right but you could imagine something like `[a b c ^{:argc 2} str]` as way to tell the compiler to take 2 args from the stack when applying str to it."
+  },
+  {
+    "timestamp": "2017-12-08T19:03:13.000070",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "(f-> a b c (mod 2 str)), where mod :: int -> func -> func , specifies how many args to take and use"
+  },
+  {
+    "timestamp": "2017-12-08T19:03:40.000183",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "oh nice. i like that."
+  },
+  {
+    "timestamp": "2017-12-08T19:03:40.000215",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "except instead of calling it mod, we should call it m! or something"
+  },
+  {
+    "timestamp": "2017-12-08T19:05:23.000150",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "heh, i sometimes wish clojure had that in core. when mapping over a list of lists (for example) i often want something that takes a number `n` and function `f` and pulls `n` many arguments from each list and applies them to the `f` rather than writing the function that unpacks the arguments by hand. it’s easy to write but i sometimes i wish i didn’t have to. :slightly_smiling_face:"
+  },
+  {
+    "timestamp": "2017-12-08T19:08:20.000144",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "<@Berry> `ap` might be a nice shorthand there. `[a b c str 2 ap]`"
+  },
+  {
+    "timestamp": "2017-12-08T19:21:32.000174",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "<@Deandrea>: how does 'str know to delay evaluation?"
+  },
+  {
+    "timestamp": "2017-12-08T19:22:16.000045",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "i'm assuming nothing but `ap` applies anything"
+  },
+  {
+    "timestamp": "2017-12-08T19:23:50.000094",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "the model I had in mind was: if you get a constant, you push it, if you get a function, you eval it"
+  },
+  {
+    "timestamp": "2017-12-08T19:24:01.000079",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "but in this model, it appears to be \"push until you hit ap\" ?"
+  },
+  {
+    "timestamp": "2017-12-08T19:24:09.000058",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "how would you do HOF then?"
+  },
+  {
+    "timestamp": "2017-12-08T19:24:29.000030",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "can you give me a concrete example you have in mind ?"
+  },
+  {
+    "timestamp": "2017-12-08T19:24:41.000063",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "write `(map inc [1 2 3])`"
+  },
+  {
+    "timestamp": "2017-12-08T19:24:59.000026",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "is [1 2 3] a single arg on the stack, or is it a stack of 3 items ?"
+  },
+  {
+    "timestamp": "2017-12-08T19:25:09.000139",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "that's clojure"
+  },
+  {
+    "timestamp": "2017-12-08T19:25:15.000258",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "write that in your stack based dialect"
+  },
+  {
+    "timestamp": "2017-12-08T19:25:49.000014",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "if your semantics are \"if the top element in my stack is a function, apply it\", then you have no way of using a function as a value"
+  },
+  {
+    "timestamp": "2017-12-08T19:26:44.000033",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "I was going to do all function combinators in clojure"
+  },
+  {
+    "timestamp": "2017-12-08T19:27:09.000176",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "the model I had in mind for `f->` is: 1. f-> gets a list of args 2. eval each arg 3. if arg is a constant, change it to a push 4. if it's a function, apply it"
+  },
+  {
+    "timestamp": "2017-12-08T19:27:47.000072",
+    "conversation_id": 1674,
+    "user": "Kareen",
+    "message": "well good luck, keywords symbols vectors maps sets are functions too"
+  },
+  {
+    "timestamp": "2017-12-08T19:27:59.000202",
+    "conversation_id": 1674,
+    "user": "Berry",
+    "message": "F---"
+  },
+  {
+    "timestamp": "2017-12-08T19:39:30.000039",
+    "conversation_id": 1674,
+    "user": "Deandrea",
+    "message": "@qqq let me get back to you. :wink: I've gotta play with my kids right now. I will be back to meditate on this some more. :smile:"
+  }
+]
