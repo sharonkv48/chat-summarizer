@@ -8,9 +8,21 @@ from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 from langchain_community.llms import HuggingFacePipeline
 from transformers import pipeline, AutoTokenizer
-import os
+
+
+import os, json, nltk, time, re, textwrap
+
+# Add this at the top after imports
+try:
+    from nltk.tokenize import sent_tokenize
+    sent_tokenize("Test.")  # Test if it works
+except:
+    import nltk
+    nltk.download("punkt_tab")
+    from nltk.tokenize import sent_tokenize
+
+from nltk.tokenize import sent_tokenize
 from dotenv import load_dotenv
-import json 
 
 load_dotenv()
 hf_token = os.getenv("HUGGINGFACEHUB_API_TOKEN")
@@ -129,7 +141,8 @@ def load_chats_from_json(file_path):
 # =============================================================================================
 
     # Testing and Timing Code
-# json_file = "/content/drive/MyDrive/combined_max_500.json"
+# json_file = "preprocessed_data\combined_max_500.json"
+
 # times = []
 # for _ in range(1):
 #     start = time.perf_counter()
