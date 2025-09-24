@@ -32,7 +32,7 @@ except Exception as e:
 try:
     action_pipeline = pipeline(
         "text2text-generation",
-        model="google/flan-t5-base"
+        model="google/flan-t5-large"
     )
     print("Action pipeline loaded successfully")
 except Exception as e:
@@ -134,7 +134,7 @@ def run_pipeline(chats):
     })
     final_summary = clean_summary(final_summary_dict['text'])
 
-    final_actions = action_chain.invoke({"conversation": chunk_summaries})
+    final_actions = action_chain.invoke({"conversation": final_summary})
     final_actions_clean = format_action_items(final_actions['text'])
 
     pretty_print("Final Summary", final_summary)
@@ -188,5 +188,6 @@ def pretty_print(title, text, width=100):
 # average_time = sum(times) / len(times)
 # print(f"Times for each run: {times}")
 # print(f"Average time : {average_time:.6f} seconds")
+
 
 
