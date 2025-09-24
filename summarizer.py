@@ -8,11 +8,6 @@ from langchain.chains import LLMChain
 from langchain_community.llms import HuggingFacePipeline
 from transformers import pipeline, AutoTokenizer
 import os, json, nltk, time, re, textwrap
-
-# This commnted out section needs to be run once
-# nltk.download("punkt")
-# nltk.download("punktab")
-
 from nltk.tokenize import sent_tokenize
 from dotenv import load_dotenv
 import json 
@@ -66,6 +61,9 @@ summary_chain = LLMChain(llm=summarizer_llm, prompt=summary_template)
 action_chain = LLMChain(llm=action_llm, prompt=action_template)
 
 # =========================================================================================
+# This commnted out section needs to be run once
+# nltk.download("punkt")
+# nltk.download("punkt_tab")
 
 def load_chats_from_json(file_path):
     with open(file_path, "r", encoding="utf-8") as f:
@@ -121,19 +119,22 @@ def run_pipeline(chats):
     chunks = chunk_text_by_sentences(conversation_text)
     print(f"Split conversation into {len(chunks)} chunks")
 
-    summaries = []
-    actions_list = []
+    chunk_summaries = []
 
     for i, chunk in enumerate(chunks, 1):
         print(f"\n Processing chunk {i}/{len(chunks)}...")
 
         summary = summary_chain.invoke({"conversation": chunk})
-        summaries.append(summary)
+        chunk_summaries.append(summary['text'])
 
-    final_summary = " ".join([s['text'] for s in summaries])
-    final_actions = action_chain.invoke({"conversation": final_summary})
+    combined_summary_text = " ".join(chunk_summaries)
 
-    final_summary = clean_summary(final_summary)
+    final_summary_dict = summary_chain.invoke({
+        "conversation": f"Summarize the following discussion into 5-7 key points:\n{combined_summary_text}"
+    })
+    final_summary = clean_summary(final_summary_dict['text'])
+
+    final_actions = action_chain.invoke({"conversation": chunk_summaries})
     final_actions_clean = format_action_items(final_actions['text'])
 
     pretty_print("Final Summary", final_summary)
@@ -187,4 +188,5 @@ def pretty_print(title, text, width=100):
 # average_time = sum(times) / len(times)
 # print(f"Times for each run: {times}")
 # print(f"Average time : {average_time:.6f} seconds")
+
 
