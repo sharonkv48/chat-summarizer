@@ -15,6 +15,7 @@ import os, json, nltk, time, re, textwrap
 
 from nltk.tokenize import sent_tokenize
 from dotenv import load_dotenv
+import json 
 
 load_dotenv()
 hf_token = os.getenv("HUGGINGFACEHUB_API_TOKEN")
