@@ -364,6 +364,18 @@ class AdvancedFeatures:
                         'source_message': message[:100] + '...' if len(message) > 100 else message,
                         'created_at': datetime.now().strftime("%Y-%m-%d %H:%M")
                     })
+
+            # Special handling: if someone mentions @jirabot, treat the message as an action for JiraBot
+            if '@jirabot' in message_lower:
+                action_items.append({
+                    'id': len(action_items) + 1,
+                    'action': f"Mentioned @jirabot: {message.strip()}",
+                    'owner': 'JiraBot',
+                    'deadline': AdvancedFeatures.extract_deadline(message),
+                    'priority': 'High',
+                    'source_message': message[:100] + '...' if len(message) > 100 else message,
+                    'created_at': datetime.now().strftime("%Y-%m-%d %H:%M")
+                })
         
         return action_items
     
